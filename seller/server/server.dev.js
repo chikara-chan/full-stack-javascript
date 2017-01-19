@@ -1,6 +1,9 @@
 // Provide custom regenerator runtime and core-js
 require('babel-polyfill')
 
+// Node babel source map support
+require("source-map-support").install()
+
 // Javascript require hook
 require('babel-register')({
     presets: ['es2015', 'react', 'stage-0'],
@@ -30,6 +33,7 @@ const app = require('./app.js'),
     webpack = require('webpack'),
     fs = require('fs'),
     path = require('path'),
+    serve = require('koa-static'),
     devMiddleware = require('koa-webpack-dev-middleware'),
     hotMiddleware = require('koa-webpack-hot-middleware'),
     views = require('koa-views'),
@@ -55,6 +59,7 @@ compiler.plugin('emit', (compilation, callback) => {
 })
 
 app.use(views(path.resolve(__dirname, '../views/dev'), {map: {html: 'ejs'}}))
+app.use(serve(path.resolve(__dirname, '../public')))
 app.use(clientRoute)
 app.use(router.routes())
 app.use(router.allowedMethods())
