@@ -1,11 +1,17 @@
-import types from '../constants/ActionTypes'
+import types from '../constants/actionTypes'
 
-export default function userInfo(state = null, action) {
+const initialState = {
+    username: '',
+    password: ''
+}
+
+export default function userInfo(state = initialState, action) {
     switch (action.type) {
-        case types.REPLACE_USER_INFO:
-            return action.userInfo
-        case types.CLEAR_USER_INFO:
-            return null
+        case types.UPDATE_USER_INFO:
+            return {
+                ...state,
+                ...action.userInfo
+            }
         default:
             return state
     }

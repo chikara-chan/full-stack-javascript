@@ -9,7 +9,7 @@ class SectionMain extends Component {
     render() {
         return (
             <section className={styles.sectionMain}>
-                首页
+                商品
             </section>
         )
     }

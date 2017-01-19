@@ -1,4 +1,7 @@
 import request from 'superagent'
+import {browserHistory} from 'react-router'
+import store from '../common/store/store'
+import alert from '../common/actions/alert'
 
 /**
  * @param  {Object} options
@@ -23,9 +26,19 @@ function ajax(options) {
 
     return new Promise(resolve => {
         promise.send(options.data).then(res => {
-            resolve(res.body)
+            if (res.body.responseCode === -1) {
+                browserHistory.push('/login')
+            } else if (!res.body.status) {
+                store.dispatch(alert.showAlert(false, res.body.message))
+            } else if (!res.body.entry) {
+                store.dispatch(alert.showAlert(true, res.body.message, () => {
+                    resolve(res.body)
+                }))
+            } else {
+                resolve(res.body)
+            }
         }).catch(err => {
-            console.log(err)
+            store.dispatch(alert.showAlert(res.body.status, res.body.message))
         })
     })
 }

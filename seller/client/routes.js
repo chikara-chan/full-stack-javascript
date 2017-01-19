@@ -17,18 +17,44 @@ const routes = {
             }
         },
         childRoutes: [{
-            path: 'explore',
+            path: 'order',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
-                    callback(null, require('./explore/containers/App'))
-                }, 'explore')
+                    callback(null, require('./order/containers/App'))
+                }, 'order')
             }
         }, {
-            path: 'about',
+            path: 'item',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
-                    callback(null, require('./about/containers/App'))
-                }, 'about')
+                    callback(null, require('./item/containers/App'))
+                }, 'item')
+            }
+        }, {
+            path: 'me',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./me/containers/App'))
+                }, 'me')
+            },
+            onEnter(nextState, replace) {
+                if ('没登陆') {
+                    replace('/login')
+                }
+            }
+        }, {
+            path: 'login',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./login/containers/App'))
+                }, 'login')
+            }
+        }, {
+            path: 'signup',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./signup/containers/App'))
+                }, 'signup')
             }
         }]
     }]

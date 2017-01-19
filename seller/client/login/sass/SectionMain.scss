@@ -1,0 +1,53 @@
+.section-main {
+    padding: 2rem 0.2rem 0 0.2rem;
+    .title {
+        text-align: center;
+    }
+    .form {
+        margin-top: 1rem;
+        .field {
+            background: #fff;
+            overflow: hidden;
+            border-left: 1px solid #dbdbdb;
+            border-right: 1px solid #dbdbdb;
+            &:nth-of-type(1) {
+                border-top: 1px solid #dbdbdb;
+                border-bottom: 1px solid #dbdbdb;
+                border-radius: 3px 3px 0 0;
+
+            }
+            &:nth-of-type(2) {
+                border-bottom: 1px solid #dbdbdb;
+                border-radius: 0 0 3px 3px;
+            }
+            .label {
+                display: flex;
+                .title {
+                    color: #666;
+                    padding: 0.25rem 0.2rem;
+                }
+                .input {
+                    flex: 1;
+                    background: #fff;
+                    outline: none;
+                    border: none;
+                    &:-webkit-autofill {
+                        -webkit-box-shadow: 0 0 0 1000px #fff inset;
+                    }
+
+                }
+            }
+        }
+        .submit {
+            width: 100%;
+            background: #428bca;
+            border: none;
+            font-size: 0.28rem;
+            border-radius: 0.03rem;
+            padding: 0.2rem;
+            color: #fff;
+            outline: none;
+            margin-top: 0.5rem;
+        }
+    }
+}

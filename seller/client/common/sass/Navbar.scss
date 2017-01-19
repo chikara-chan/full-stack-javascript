@@ -1,33 +1,31 @@
 .navbar {
+    display: flex;
     position: fixed;
-    top: 50px;
     bottom: 0;
-    left: 0;
-    width: 200px;
-    padding-top: 10px;
-    background: #222d32;
-    font-size: 14px;
+    width: 100%;
+    height: 1rem;
+    background: #fff;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
 
     .link {
         display: block;
-        position: relative;
-        padding: 10px 30px;
+        width: 25%;
+        padding-top: 0.15rem;
         text-decoration: none;
-        color: #aaa;
+        color: #333;
+        text-align: center;
 
         &.active {
-            color: #fff;
+            color: #428bca;
+        }
 
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: #327eab;
-            }
+        .icon {
+            font-size: 0.35rem;
+        }
+
+        .title {
+            margin-top: 0.1rem;
         }
     }
 }

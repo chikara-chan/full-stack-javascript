@@ -1,7 +1,7 @@
 import React, {Children, Component, cloneElement} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import Header from '../components/Header'
+import Alert from '../components/Alert'
 import Navbar from '../components/Navbar'
 import Main from '../components/Main'
 import actions from '../actions'
@@ -13,12 +13,24 @@ class Common extends Component {
         super()
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const {alert, actions} = this.props
+
+        if (alert.show) {
+            clearTimeout(this.timer)
+            this.timer = setTimeout(() => {
+                actions.hideAlert()
+                alert.callback && alert.callback()
+            }, alert.time)
+        }
+    }
+
     render() {
-        const {children, ...props} = this.props
+        const {children, alert, ...props} = this.props
 
         return (
             <div className={styles.app}>
-                <Header/>
+                <Alert alert={alert}/>
                 <Navbar/>
                 <Main>
                     {Children.map(children, child =>
@@ -31,7 +43,7 @@ class Common extends Component {
 }
 
 function mapStateToProps(state) {
-    return {userInfo: state.userInfo}
+    return state
 }
 
 function mapDispatchToProps(dispatch) {
