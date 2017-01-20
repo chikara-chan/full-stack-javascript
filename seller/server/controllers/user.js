@@ -7,7 +7,7 @@ async function login(ctx) {
         cryptoPassword = md5.update(password).digest('hex')
     let user
 
-    user = await User.findOne({username, password: cryptoPassword})
+    user = await User.findOne({username, password: cryptoPassword}, '-_id')
     if (user) {
         ctx.body = {
             message: '登录成功'
