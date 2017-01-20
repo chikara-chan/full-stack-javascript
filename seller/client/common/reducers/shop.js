@@ -1,19 +1,21 @@
 import types from '../constants/actionTypes'
 
 const initialState = {
-    show: false
+    shopName: '',
+    schoolName: '',
+    shopType: ''
 }
 
-function alert(state = initialState, action) {
+function shop(state = initialState, action) {
     switch (action.type) {
-        case types.UPDATE_ALERT:
+        case types.UPDATE_SHOP:
             return {
                 ...state,
-                ...action.alert
+                ...action.shop
             }
         default:
             return state
     }
 }
 
-export default alert
+export default shop

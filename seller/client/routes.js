@@ -36,11 +36,6 @@ const routes = {
                 require.ensure([], require => {
                     callback(null, require('./me/containers/App'))
                 }, 'me')
-            },
-            onEnter(nextState, replace) {
-                if ('没登陆') {
-                    replace('/login')
-                }
             }
         }, {
             path: 'login',
@@ -48,13 +43,6 @@ const routes = {
                 require.ensure([], require => {
                     callback(null, require('./login/containers/App'))
                 }, 'login')
-            }
-        }, {
-            path: 'signup',
-            getComponent(nextState, callback) {
-                require.ensure([], require => {
-                    callback(null, require('./signup/containers/App'))
-                }, 'signup')
             }
         }]
     }]

@@ -3,6 +3,8 @@ import {browserHistory} from 'react-router'
 import store from '../common/store/store'
 import alert from '../common/actions/alert'
 
+let timer
+
 /**
  * @param  {Object} options
  * @return {Object}         Return Promise
@@ -29,11 +31,30 @@ function ajax(options) {
             if (res.body.responseCode === -1) {
                 browserHistory.push('/login')
             } else if (!res.body.status) {
-                store.dispatch(alert.showAlert(false, res.body.message))
-            } else if (!res.body.entry) {
-                store.dispatch(alert.showAlert(true, res.body.message, () => {
-                    resolve(res.body)
+                clearTimeout(timer)
+                store.dispatch(alert.updateAlert({
+                    show: true,
+                    status: false,
+                    message: res.body.message
                 }))
+                timer = setTimeout(() => {
+                    store.dispatch(alert.updateAlert({
+                        show: false,
+                    }))
+                }, 1000)
+            } else if (!res.body.entry) {
+                clearTimeout(timer)
+                store.dispatch(alert.updateAlert({
+                    show: true,
+                    status: true,
+                    message: res.body.message
+                }))
+                timer = setTimeout(() => {
+                    store.dispatch(alert.updateAlert({
+                        show: false,
+                    }))
+                    resolve(res.body)
+                }, 1000)
             } else {
                 resolve(res.body)
             }

@@ -2,16 +2,16 @@ import {browserHistory} from 'react-router'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
 
-function updateUserInfo(userInfo) {
+function updateUser(user) {
     return {
-        type: types.UPDATE_USER_INFO,
-        userInfo
+        type: types.UPDATE_USER,
+        user
     }
 }
 
-function submitLogin() {
+function postLogin() {
     return (dispatch, getState) => {
-        const {username, password} = getState().userInfo
+        const {username, password} = getState().user
 
         utils.ajax({
             url: '/api/user/login',
@@ -20,12 +20,12 @@ function submitLogin() {
                 password
             }
         }).then(res => {
-            browserHistory.push('/')
+            browserHistory.goBack()
         })
     }
 }
 
 export default {
-    updateUserInfo,
-    submitLogin
+    updateUser,
+    postLogin
 }

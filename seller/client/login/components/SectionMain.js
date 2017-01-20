@@ -14,20 +14,29 @@ class SectionMain extends Component {
         const {target} = e,
             {actions} = this.props
 
-        actions.updateUserInfo({
+        actions.updateUser({
             [target.name]: target.value
+        })
+    }
+
+    componentDidMount() {
+        const {actions} = this.props
+
+        actions.updateUser({
+            username: '',
+            password: ''
         })
     }
 
     onSubmit(e) {
         const {actions} = this.props
 
-        actions.submitLogin()
+        actions.postLogin()
         e.preventDefault()
     }
 
     render() {
-        const {username, password} = this.props.userInfo
+        const {user} = this.props
 
         return (
             <section className={styles.sectionMain}>
@@ -36,13 +45,13 @@ class SectionMain extends Component {
                     <div className={styles.field}>
                         <label className={styles.label}>
                             <span className={styles.title}>账号</span>
-                            <input className={styles.input} type="text" name="username" placeholder="请输入账号" value={username} onChange={this.handleChange}/>
+                            <input className={styles.input} type="text" name="username" placeholder="请输入账号" value={user.username} onChange={this.handleChange}/>
                         </label>
                     </div>
                     <div className={styles.field}>
                         <label className={styles.label}>
                             <span className={styles.title}>密码</span>
-                            <input className={styles.input} type="password" name="password" placeholder="请输入密码" value={password} onChange={this.handleChange}/>
+                            <input className={styles.input} type="password" name="password" placeholder="请输入密码" value={user.password} onChange={this.handleChange}/>
                         </label>
                     </div>
                     <input className={styles.submit} type="submit" value="登录"/>

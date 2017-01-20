@@ -1,13 +1,23 @@
 const alert = {
-    SHOW_ALERT: 'SHOW_ALERT',
-    HIDE_ALERT: 'HIDE_ALERT'
-}
-
-const userInfo = {
-    UPDATE_USER_INFO: 'UPDATE_USER_INFO'
-}
+        UPDATE_ALERT: 'UPDATE_ALERT'
+    },
+    navbar = {
+        UPDATE_NAVBAR: 'UPDATE_NAVBAR',
+    },
+    actionbar = {
+        UPDATE_ACTIONBAR: 'UPDATE_ACTIONBAR',
+    },
+    user = {
+        UPDATE_USER: 'UPDATE_USER'
+    },
+    shop = {
+        UPDATE_SHOP: 'UPDATE_SHOP'
+    }
 
 export default {
     ...alert,
-    ...userInfo
+    ...navbar,
+    ...actionbar,
+    ...user,
+    ...shop
 }

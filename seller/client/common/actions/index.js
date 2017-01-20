@@ -1,8 +1,13 @@
-import types from '../constants/actionTypes'
 import alert from './alert'
-import userInfo from './userInfo'
+import navbar from './navbar'
+import actionbar from './actionbar'
+import user from './user'
+import shop from './shop'
 
 export default {
     ...alert,
-    ...userInfo
+    ...navbar,
+    ...actionbar,
+    ...user,
+    ...shop
 }

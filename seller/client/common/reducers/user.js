@@ -1,19 +1,20 @@
 import types from '../constants/actionTypes'
 
 const initialState = {
-    show: false
+    username: '',
+    password: ''
 }
 
-function alert(state = initialState, action) {
+function user(state = initialState, action) {
     switch (action.type) {
-        case types.UPDATE_ALERT:
+        case types.UPDATE_USER:
             return {
                 ...state,
-                ...action.alert
+                ...action.user
             }
         default:
             return state
     }
 }
 
-export default alert
+export default user

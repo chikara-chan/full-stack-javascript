@@ -1,19 +1,21 @@
 import types from '../constants/actionTypes'
 
 const initialState = {
-    show: false
+    title: '',
+    action: '',
+    back: false
 }
 
-function alert(state = initialState, action) {
+function actionbar(state = initialState, action) {
     switch (action.type) {
-        case types.UPDATE_ALERT:
+        case types.UPDATE_ACTIONBAR:
             return {
                 ...state,
-                ...action.alert
+                ...action.actionbar
             }
         default:
             return state
     }
 }
 
-export default alert
+export default actionbar

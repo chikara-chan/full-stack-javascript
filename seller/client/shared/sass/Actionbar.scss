@@ -1,0 +1,29 @@
+.actionbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.03rem 0.2rem 0.03rem 0.1rem;
+    background: #2c3b41;
+
+    .back {
+        padding: 0 0.2rem;
+        color: #fff;
+        text-align: center;
+        font-size: 0.3rem;
+    }
+
+    .title {
+        color: #fff;
+        text-align: center;
+        font-size: 0.28rem;
+        font-weight: 500;
+    }
+
+    .action {
+        padding: 0.1rem 0.2rem;
+        color: #fff;
+        text-align: center;
+        font-size: 0.24rem;
+        font-weight: 500;
+    }
+}

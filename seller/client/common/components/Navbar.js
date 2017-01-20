@@ -8,8 +8,10 @@ class Navbar extends Component {
     }
 
     render() {
+        const {navbar} = this.props
+
         return (
-            <nav className={styles.navbar}>
+            <nav className={`${styles.navbar} ${navbar.show ? '' : styles.hide}`}>
                 <IndexLink className={styles.link} activeClassName={styles.active} to="/">
                     <i className={`iconfont icon-store ${styles.icon}`}></i>
                     <p className={styles.title}>首页</p>

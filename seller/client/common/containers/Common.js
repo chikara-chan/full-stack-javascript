@@ -13,30 +13,18 @@ class Common extends Component {
         super()
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        const {alert, actions} = this.props
-
-        if (alert.show) {
-            clearTimeout(this.timer)
-            this.timer = setTimeout(() => {
-                actions.hideAlert()
-                alert.callback && alert.callback()
-            }, alert.time)
-        }
-    }
-
     render() {
-        const {children, alert, ...props} = this.props
+        const {children, alert, navbar, ...props} = this.props
 
         return (
             <div className={styles.app}>
-                <Alert alert={alert}/>
-                <Navbar/>
+                <Navbar navbar={navbar}/>
                 <Main>
                     {Children.map(children, child =>
                         cloneElement(child, {...props})
                     )}
                 </Main>
+                <Alert alert={alert}/>
             </div>
         )
     }

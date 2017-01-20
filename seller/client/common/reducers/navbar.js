@@ -1,18 +1,19 @@
 import types from '../constants/actionTypes'
 
 const initialState = {
-    username: '',
-    password: ''
+    show: true
 }
 
-export default function userInfo(state = initialState, action) {
+function navbar(state = initialState, action) {
     switch (action.type) {
-        case types.UPDATE_USER_INFO:
+        case types.UPDATE_NAVBAR:
             return {
                 ...state,
-                ...action.userInfo
+                ...action.navbar
             }
         default:
             return state
     }
 }
+
+export default navbar

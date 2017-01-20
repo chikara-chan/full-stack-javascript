@@ -1,10 +1,16 @@
 import {combineReducers} from 'redux'
-import userInfo from './userInfo'
 import alert from './alert'
+import navbar from './navbar'
+import actionbar from './actionbar'
+import user from './user'
+import shop from './shop'
 
 const rootReducer = combineReducers({
-    userInfo,
-    alert
+    alert,
+    navbar,
+    actionbar,
+    user,
+    shop
 })
 
 export default rootReducer
