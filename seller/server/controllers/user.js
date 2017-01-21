@@ -21,4 +21,39 @@ async function login(ctx) {
     }
 }
 
-export default {login}
+async function getUserInfo(ctx) {
+    const {id} = ctx.session.user
+    let user
+
+    user = await User.findOne({id}, '-_id -username -password')
+    if (user) {
+        ctx.body = {
+            entry: user
+        }
+    } else {
+        ctx.body = {
+            status: false,
+        }
+    }
+}
+
+async function updateUserInfo(ctx) {
+    const userInfo = ctx.req.body,
+        {id} = ctx.session.user
+    let ret
+
+    delete userInfo.username
+    delete userInfo.password
+    ret = await User.update({id}, userInfo)
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+export default {
+    login,
+    updateUserInfo,
+    getUserInfo
+}
