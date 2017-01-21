@@ -1,14 +1,39 @@
 .section-main {
+    .img-wrap {
+        text-align: center;
+        padding: 0.4rem;
+        .img {
+            border-radius: 50%;
+        }
+    }
     .form {
         .card {
+            background: #fff;
+            margin-bottom: 0.5rem;
+            border-top: 1px solid #dbdbdb;
             .field {
+                border-bottom: 1px solid #dbdbdb;
                 .label {
+                    display: flex;
+                    padding: 0.2rem 0;
                     .title {
-
+                        width: 2rem;
+                        padding: 0.06rem 0 0.06rem 0.3rem;
                     }
 
                     .input {
+                        flex: 1;
+                        background: #fff;
+                        outline: none;
+                        border: none;
+                        padding: 0.06rem 0;
+                        &:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0 1000px #fff inset;
+                        }
 
+                        &.disabled {
+                            color: #aaa;
+                        }
                     }
                 }
             }

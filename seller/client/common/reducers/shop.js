@@ -3,7 +3,8 @@ import types from '../constants/actionTypes'
 const initialState = {
     shopName: '',
     schoolName: '',
-    shopType: ''
+    shopType: '',
+    openTime: ''
 }
 
 function shop(state = initialState, action) {

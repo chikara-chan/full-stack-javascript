@@ -2,7 +2,11 @@ import types from '../constants/actionTypes'
 
 const initialState = {
     username: '',
-    password: ''
+    password: '',
+    nickname: '',
+    mobile: '',
+    email: '',
+    identity: ''
 }
 
 function user(state = initialState, action) {

@@ -25,7 +25,29 @@ function postLogin() {
     }
 }
 
+function postUser() {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/user/updateUserInfo',
+            data: getState().user
+        }).then(res => {
+        })
+    }
+}
+function getUser() {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/user/getUserInfo',
+            type: 'get'
+        }).then(res => {
+            dispatch(updateUser(res.entry))
+        })
+    }
+}
+
 export default {
     updateUser,
-    postLogin
+    postLogin,
+    postUser,
+    getUser
 }
