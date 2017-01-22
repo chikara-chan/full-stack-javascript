@@ -6,6 +6,7 @@ const initialState = {
     nickname: '',
     mobile: '',
     email: '',
+    address: '',
     identity: ''
 }
 

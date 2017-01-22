@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styles from '../sass/SectionMain'
-import switcher from '../../shared/switcher'
+import switcher, {switchShopType} from '../../shared/switcher'
 
 class SectionMain extends Component {
     constructor() {
@@ -8,6 +8,8 @@ class SectionMain extends Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleChangeUser = this.handleChangeUser.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
+        this.handleClickAvatar = this.handleClickAvatar.bind(this)
     }
 
     componentDidMount() {
@@ -41,21 +43,34 @@ class SectionMain extends Component {
             {actions} = this.props
 
         actions.updateUser({
-            [target.name]: target.value
+            [target.name]: target.type === 'file' ? target.files[0] : target.value
         })
     }
 
+
+    handleClickAvatar(e) {
+        const {file} = this.refs
+
+        file.click()
+    }
+
+    handleLogout() {
+        const {actions} = this.props
+
+        actions.postLogout()
+    }
+
     render() {
-        const {shopName, schoolName, shopType, openTime} = this.props.shop,
-            {nickname, mobile, email, identity} = this.props.user,
+        const {shopName, school, shopType, openTime} = this.props.shop,
+            {nickname, mobile, email, identity, address, avatar, avatarFile} = this.props.user,
             {actionbar} = this.props,
-            {switchShopType} = switcher,
             readOnly = actionbar.action === '编辑'
 
         return (
             <section className={styles.sectionMain}>
                 <div className={styles.imgWrap}>
-                    <img className={styles.img} src="/assets/user-default.png"/>
+                    <img className={styles.img} src={avatar} onClick={this.handleClickAvatar}/>
+                    <input className={styles.file} ref="file" type="file" name="avatarFile" onChange={this.handleChangeUser}/>
                 </div>
                 <form className={styles.form}>
                     <div className={styles.card}>
@@ -68,7 +83,7 @@ class SectionMain extends Component {
                         <div className={styles.field}>
                             <label className={styles.label}>
                                 <span className={styles.title}>所属学校</span>
-                                <input className={`${styles.input} ${readOnly ? '' : styles.disabled}`} type="text" name="schoolName" readOnly value={schoolName}/>
+                                <input className={`${styles.input} ${readOnly ? '' : styles.disabled}`} type="text" name="school.id" readOnly value={school.schoolName}/>
                             </label>
                         </div>
                         <div className={styles.field}>
@@ -108,6 +123,17 @@ class SectionMain extends Component {
                                 <span className={styles.title}>邮箱</span>
                                 <input className={styles.input} type="text" name="email"  readOnly={readOnly} value={email} onChange={this.handleChangeUser}/>
                             </label>
+                        </div>
+                        <div className={styles.field}>
+                            <label className={styles.label}>
+                                <span className={styles.title}>地址</span>
+                                <input className={styles.input} type="text" name="address"  readOnly={readOnly} value={address} onChange={this.handleChangeUser}/>
+                            </label>
+                        </div>
+                    </div>
+                    <div className={styles.card}>
+                        <div className={styles.field}>
+                            <input className={styles.logout} type="button" value="退出登录" onClick={this.handleLogout}/>
                         </div>
                     </div>
                 </form>

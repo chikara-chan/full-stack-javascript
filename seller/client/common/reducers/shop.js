@@ -2,7 +2,9 @@ import types from '../constants/actionTypes'
 
 const initialState = {
     shopName: '',
-    schoolName: '',
+    school: {
+        schoolName: ''
+    },
     shopType: '',
     openTime: ''
 }

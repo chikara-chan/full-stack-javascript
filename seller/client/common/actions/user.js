@@ -25,15 +25,31 @@ function postLogin() {
     }
 }
 
-function postUser() {
+function postLogout() {
     return (dispatch, getState) => {
         utils.ajax({
+            url: '/api/user/logout',
+        }).then(res => {
+            browserHistory.push('/login')
+        })
+    }
+}
+
+function postUser() {
+    return (dispatch, getState) => {
+        console.log(getState().user.avatarFile)
+        utils.ajax({
             url: '/api/user/updateUserInfo',
-            data: getState().user
+            'Content-Type': 'multipart/form-data',
+            data: {
+                // avatarFile: getState().user.avatarFile,
+                a: '2'
+            }
         }).then(res => {
         })
     }
 }
+
 function getUser() {
     return (dispatch, getState) => {
         utils.ajax({
@@ -48,6 +64,7 @@ function getUser() {
 export default {
     updateUser,
     postLogin,
+    postLogout,
     postUser,
     getUser
 }

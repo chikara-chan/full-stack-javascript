@@ -17,7 +17,7 @@ class App extends Component {
         actions.updateActionbar({
             title: '我的',
             action: '编辑',
-            back: true
+            back: false
         })
     }
 
