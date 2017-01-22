@@ -49,9 +49,13 @@ class SectionMain extends Component {
 
 
     handleClickAvatar(e) {
-        const {file} = this.refs
+        const {file} = this.refs,
+            {actionbar} = this.props,
+            readOnly = actionbar.action === '编辑'
 
-        file.click()
+        if (!readOnly) {
+            file.click()
+        }
     }
 
     handleLogout() {

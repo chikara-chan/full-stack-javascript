@@ -37,15 +37,17 @@ function postLogout() {
 
 function postUser() {
     return (dispatch, getState) => {
-        console.log(getState().user.avatarFile)
+        const formData = new FormData(),
+            {user} = getState()
+
+        Object.keys(user).forEach(key => {
+            formData.append(key, user[key])
+        })
         utils.ajax({
             url: '/api/user/updateUserInfo',
-            'Content-Type': 'multipart/form-data',
-            data: {
-                // avatarFile: getState().user.avatarFile,
-                a: '2'
-            }
+            data: formData
         }).then(res => {
+            dispatch(updateUser(res.entry))
         })
     }
 }

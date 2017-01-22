@@ -13,8 +13,7 @@ function ajax(options) {
     const defaults = {
         url: null,
         type: 'post',
-        data: {},
-        'Content-Type': 'application/json'
+        data: {}
     }
     let promise
 
