@@ -12,11 +12,17 @@ const app = new Koa()
 
 app.keys = ['this is a fucking secret']
 app.use(convert(session({
-    store: new MongoStore(),
-    url: `mongodb://${config.host}:${config.port}/${config.db}`
+    store: new MongoStore({
+        url: `mongodb://${config.host}:${config.port}/${config.db}`
+    })
 })))
 app.use(compress())
-app.use(bodyParser())
+app.use(bodyParser({
+
+    formidable:{uploadDir: './uploads'},    //This is where the files would come
+    multipart: true,
+    urlencoded: true
+}))
 app.use(async (ctx, next) => {
     ctx.req.body = ctx.request.body
     await next()

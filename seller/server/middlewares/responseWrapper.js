@@ -1,5 +1,12 @@
 async function responseWrap(ctx, next) {
-    await next()
+    try {
+        await next()
+    } catch (e) {
+        console.error(e)
+        ctx.body = {
+            status: false
+        }
+    }
     ctx.body = {
         entry: null,
         status: true,
