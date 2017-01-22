@@ -20,7 +20,7 @@ function deleteKeys(obj, keys) {
     }
 
     Object.keys(obj).forEach(key => {
-        if (!keys.includes(key)) {
+        if (keys.includes(key)) {
             delete obj[key]
         }
     })

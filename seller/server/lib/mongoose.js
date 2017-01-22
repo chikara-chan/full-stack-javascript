@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import config from '../config'
-import utils from '../lib/utils'
 
 mongoose.connect(`mongodb://${config.host}:${config.port}/${config.db}`)
 mongoose.Promise = Promise

@@ -1,5 +1,8 @@
+import fs from 'fs'
+import path from 'path'
+import mkdirp from 'mkdirp'
 import crypto from 'crypto'
-import parse from 'co-busboy'
+import {Types} from 'mongoose'
 import User from '../models/user'
 import utils from '../lib/utils'
 
@@ -34,7 +37,8 @@ async function getUserInfo(ctx) {
     const {id} = ctx.session.user
     let user
 
-    user = await User.findOne({id}, '-username -password').lean()
+    user = await User.findOne({id}).lean()
+    utils.deleteKeys(user, 'username password')
     if (user) {
         ctx.body = {
             entry: user
@@ -47,36 +51,37 @@ async function getUserInfo(ctx) {
 }
 
 async function updateUserInfo(ctx) {
-    const userInfo = ctx.req.body,
+    const userInfo = ctx.req.body.fields,
+        {avatarFile} = ctx.req.body.files,
         {id} = ctx.session.user
-    let ret
-console.log(ctx.request.body)
+    let ret, data, year, month, day, date, ext, dest
+
     utils.deleteKeys(userInfo, 'username password avatar')
-    ret = await User.update({id}, {userInfo})
+    if (avatarFile) {
+        data = fs.readFileSync(avatarFile.path)
+        date = new Date()
+        year = date.getFullYear()
+        month = date.getMonth() + 1
+        day = date.getDate()
+        ext = avatarFile.name.slice(avatarFile.name.lastIndexOf('.'))
+        dest = path.resolve(__dirname, `../../public/assets/${year}/${month}/${day}/${new Types.ObjectId()}${ext}`)
+        mkdirp.sync(path.dirname(dest))
+        fs.writeFileSync(dest, data)
+        fs.unlinkSync(avatarFile.path)
+        userInfo.avatar = dest.slice(dest.indexOf('/assets'))
+    }
+    ret = await User.update({id}, userInfo)
     if (!ret.ok) {
         ctx.body = {
             status: false
         }
+    } else if (avatarFile) {
+        ctx.body = {
+            entry: {
+                avatar: userInfo.avatar
+            }
+        }
     }
-}
-
-function* a(next) {
-  // the body isn't multipart, so busboy can't parse it
-  if (!this.request.is('multipart/*')) return yield next
-
-  var parts = parse(this)
-  var part
-  while (part = yield parts) {
-    if (part.length) {
-      // arrays are busboy fields
-      console.log('key: ' + part[0])
-      console.log('value: ' + part[1])
-    } else {
-      // otherwise, it's a stream
-      part.pipe(fs.createWriteStream('some file.txt'))
-    }
-  }
-  console.log('and we are done parsing the form!')
 }
 
 export default {

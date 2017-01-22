@@ -1,6 +1,7 @@
+import os from 'os'
 import Koa from 'koa'
 import json from 'koa-json'
-import bodyParser from 'koa-bodyparser'
+import body from 'koa-body'
 import logger from 'koa-logger'
 import session from 'koa-generic-session'
 import MongoStore from 'koa-generic-session-mongo'
@@ -17,17 +18,14 @@ app.use(convert(session({
     })
 })))
 app.use(compress())
-app.use(bodyParser({
-
-    formidable:{uploadDir: './uploads'},    //This is where the files would come
-    multipart: true,
-    urlencoded: true
+app.use(body({
+    formidable:{uploadDir: os.tmpdir()},
+    multipart: true
 }))
 app.use(async (ctx, next) => {
     ctx.req.body = ctx.request.body
     await next()
 })
-app.use(json())
 app.use(logger())
 
 export default app
