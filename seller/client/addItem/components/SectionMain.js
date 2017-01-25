@@ -167,7 +167,7 @@ class SectionMain extends Component {
                         <div className={styles.field}>
                             <label className={styles.label}>
                                 <span className={styles.title}>描述</span>
-                                <textarea className={styles.input} name="desc" value={desc} placeholder="请输入shang'p描述" onChange={this.handleChange}/>
+                                <textarea className={styles.input} name="desc" value={desc} placeholder="请输入商描述" onChange={this.handleChange}/>
                             </label>
                         </div>
                     </div>
