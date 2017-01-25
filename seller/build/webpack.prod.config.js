@@ -47,6 +47,9 @@ clientConfig = {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract('style', 'css?modules&camelCase&importLoaders=1&localIdentName=[hash:base64:8]!postcss!sass')
         }, {
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
             test: /\.(jpg|png|gif|webp)$/,
             loader: 'url?limit=8000'
         }, {
@@ -58,7 +61,7 @@ clientConfig = {
         }]
     },
     postcss: [autoprefixer({browsers: ['> 5%']})],
-    resolve: {extensions: ['', '.js', '.json', '.scss']},
+    resolve: {extensions: ['', '.js', '.json', '.scss', '.css']},
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
@@ -109,6 +112,9 @@ serverConfig = {
                 'sass'
             ]
         }, {
+            test: /\.css$/,
+            loader: 'null'
+        }, {
             test: /\.(jpg|png|gif|webp)$/,
             loader: 'url?limit=8000'
         }, {
@@ -117,7 +123,7 @@ serverConfig = {
         }]
     },
     externals: getExternals(),
-    resolve: {extensions: ['', '.js', '.json', '.scss']},
+    resolve: {extensions: ['', '.js', '.json', '.scss', '.css']},
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

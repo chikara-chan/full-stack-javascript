@@ -34,6 +34,7 @@
         "react-tabs": "^0.8.2",
         "redux": "^3.6.0",
         "redux-thunk": "^2.1.0",
+        "semantic-ui-css": "^2.2.4",
         "semantic-ui-react": "^0.64.1",
         "source-map-support": "^0.4.10",
         "superagent": "^3.3.1"
@@ -63,6 +64,7 @@
         "koa-webpack-hot-middleware": "^1.0.3",
         "node-sass": "^4.1.1",
         "nodemon": "^1.11.0",
+        "null-loader": "^0.1.1",
         "postcss-loader": "^1.2.1",
         "progress-bar-webpack-plugin": "^1.9.0",
         "redux-devtools": "^3.3.1",

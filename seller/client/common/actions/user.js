@@ -37,17 +37,29 @@ function postLogout() {
 
 function postUser() {
     return (dispatch, getState) => {
-        const formData = new FormData(),
-            {user} = getState()
-
-        Object.keys(user).forEach(key => {
-            formData.append(key, user[key])
-        })
         utils.ajax({
             url: '/api/user/updateUserInfo',
-            data: formData
+            data: getState().user
         }).then(res => {
             dispatch(updateUser(res.entry))
+        })
+    }
+}
+
+function postUserAvatar(avatar) {
+    return (dispatch, getState) => {
+        const formData = new FormData()
+
+        Object.keys(avatar).forEach(key => {
+            formData.append(key, avatar[key])
+        })
+        utils.ajax({
+            url: '/api/common/upload',
+            data: formData
+        }).then(res => {
+            dispatch(updateUser({
+                avatar: res.entry
+            }))
         })
     }
 }
@@ -68,5 +80,6 @@ export default {
     postLogin,
     postLogout,
     postUser,
+    postUserAvatar,
     getUser
 }

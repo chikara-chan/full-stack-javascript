@@ -10,7 +10,7 @@ require('babel-register')({
     plugins: ['add-module-exports']
 })
 
-// Css require hook
+// SCSS require hook
 require('css-modules-require-hook')({
     extensions: ['.scss'],
     preprocessCss: (data, filename) =>
@@ -27,6 +27,11 @@ require('asset-require-hook')({
     extensions: ['jpg', 'png', 'gif', 'webp'],
     limit: 8000
 })
+
+// CSS ignore
+require.extensions['.css'] = function() {
+    return
+}
 
 const app = require('./app.js'),
     convert = require('koa-convert'),

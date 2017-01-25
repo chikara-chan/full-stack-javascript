@@ -1,8 +1,4 @@
-import fs from 'fs'
-import path from 'path'
-import mkdirp from 'mkdirp'
 import crypto from 'crypto'
-import {Types} from 'mongoose'
 import User from '../models/user'
 import utils from '../lib/utils'
 
@@ -34,10 +30,10 @@ async function logout(ctx) {
 }
 
 async function getUserInfo(ctx) {
-    const {id} = ctx.session.user
+    const {_id} = ctx.session.user
     let user
 
-    user = await User.findOne({id}).lean()
+    user = await User.findOne({_id}).lean()
     utils.deleteKeys(user, 'username password')
     if (user) {
         ctx.body = {
@@ -51,35 +47,15 @@ async function getUserInfo(ctx) {
 }
 
 async function updateUserInfo(ctx) {
-    const userInfo = ctx.req.body.fields,
-        {avatarFile} = ctx.req.body.files,
-        {id} = ctx.session.user
+    const userInfo = ctx.req.body,
+        {_id} = ctx.session.user
     let ret, data, year, month, day, date, ext, dest
 
-    utils.deleteKeys(userInfo, 'username password avatar')
-    if (avatarFile) {
-        data = fs.readFileSync(avatarFile.path)
-        date = new Date()
-        year = date.getFullYear()
-        month = date.getMonth() + 1
-        day = date.getDate()
-        ext = avatarFile.name.slice(avatarFile.name.lastIndexOf('.'))
-        dest = path.resolve(__dirname, `../../public/assets/${year}/${month}/${day}/${new Types.ObjectId()}${ext}`)
-        mkdirp.sync(path.dirname(dest))
-        fs.writeFileSync(dest, data)
-        fs.unlinkSync(avatarFile.path)
-        userInfo.avatar = dest.slice(dest.indexOf('/assets'))
-    }
-    ret = await User.update({id}, userInfo)
+    utils.deleteKeys(userInfo, 'username password')
+    ret = await User.update({_id}, userInfo)
     if (!ret.ok) {
         ctx.body = {
             status: false
-        }
-    } else if (avatarFile) {
-        ctx.body = {
-            entry: {
-                avatar: userInfo.avatar
-            }
         }
     }
 }

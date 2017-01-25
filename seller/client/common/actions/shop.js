@@ -15,7 +15,6 @@ function getShop() {
             url: '/api/shop/getShopInfo',
             type: 'get'
         }).then(res => {
-            console.log()
             dispatch(updateShop(res.entry))
         })
     }

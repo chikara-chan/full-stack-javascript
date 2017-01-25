@@ -10,6 +10,7 @@ class SectionMain extends Component {
         this.handleChangeUser = this.handleChangeUser.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
         this.handleClickAvatar = this.handleClickAvatar.bind(this)
+        this.handleChangeAvatar = this.handleChangeAvatar.bind(this)
     }
 
     componentDidMount() {
@@ -43,7 +44,16 @@ class SectionMain extends Component {
             {actions} = this.props
 
         actions.updateUser({
-            [target.name]: target.type === 'file' ? target.files[0] : target.value
+            [target.name]: target.value
+        })
+    }
+
+    handleChangeAvatar(e) {
+        const {target} = e,
+            {actions} = this.props
+
+        actions.postUserAvatar({
+            [target.name]: target.files[0]
         })
     }
 
@@ -53,8 +63,8 @@ class SectionMain extends Component {
             {actionbar} = this.props,
             readOnly = actionbar.action === '编辑'
 
-        if (!readOnly) {
-            file.click()
+        if (readOnly) {
+            e.preventDefault()
         }
     }
 
@@ -66,17 +76,17 @@ class SectionMain extends Component {
 
     render() {
         const {shopName, school, shopType, openTime} = this.props.shop,
-            {nickname, mobile, email, identity, address, avatar, avatarFile} = this.props.user,
+            {nickname, mobile, email, identity, address, avatar} = this.props.user,
             {actionbar} = this.props,
             readOnly = actionbar.action === '编辑'
 
         return (
             <section className={styles.sectionMain}>
-                <div className={styles.imgWrap}>
-                    <img className={styles.img} src={avatar} onClick={this.handleClickAvatar}/>
-                    <input className={styles.file} ref="file" type="file" name="avatarFile" onChange={this.handleChangeUser}/>
-                </div>
                 <form className={styles.form}>
+                    <label className={styles.imgWrap} onClick={this.handleClickAvatar}>
+                        <img className={styles.img} src={avatar}/>
+                        <input className={styles.file} ref="file" type="file" accept="image/*" name="file" onChange={this.handleChangeAvatar}/>
+                    </label>
                     <div className={styles.card}>
                         <div className={styles.field}>
                             <label className={styles.label}>

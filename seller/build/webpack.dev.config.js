@@ -42,6 +42,12 @@ module.exports = {
                 'sass'
             ]
         }, {
+            test: /\.css$/,
+            loaders: [
+                'style',
+                'css',
+            ]
+        }, {
             test: /\.(jpg|png|gif|webp)$/,
             loader: 'url?limit=8000'
         }, {
@@ -52,7 +58,7 @@ module.exports = {
             loader: 'html?minimize=false'
         }]
     },
-    resolve: {extensions: ['', '.js', '.json', '.scss']},
+    resolve: {extensions: ['', '.js', '.json', '.scss', '.css']},
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

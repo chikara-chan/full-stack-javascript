@@ -31,6 +31,13 @@ const routes = {
                 }, 'item')
             }
         }, {
+            path: 'addItem',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./addItem/containers/App'))
+                }, 'addItem')
+            }
+        }, {
             path: 'me',
             getComponent(nextState, callback) {
                 require.ensure([], require => {

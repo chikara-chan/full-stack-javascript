@@ -45,13 +45,13 @@ class SectionMain extends Component {
                     <div className={styles.field}>
                         <label className={styles.label}>
                             <span className={styles.title}>账号</span>
-                            <input className={styles.input} type="text" name="username" placeholder="请输入账号" value={user.username} onChange={this.handleChange}/>
+                            <input className={styles.input} type="text" name="username" placeholder="请输入账号" value={user.username} required onChange={this.handleChange}/>
                         </label>
                     </div>
                     <div className={styles.field}>
                         <label className={styles.label}>
                             <span className={styles.title}>密码</span>
-                            <input className={styles.input} type="password" name="password" placeholder="请输入密码" value={user.password} onChange={this.handleChange}/>
+                            <input className={styles.input} type="password" name="password" placeholder="请输入密码" value={user.password} required onChange={this.handleChange}/>
                         </label>
                     </div>
                     <input className={styles.submit} type="submit" value="登录"/>

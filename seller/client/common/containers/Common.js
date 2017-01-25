@@ -17,7 +17,7 @@ class Common extends Component {
         const {children, alert, navbar, ...props} = this.props
 
         return (
-            <div className={styles.app}>
+            <div className={`${styles.app} ${navbar.show ? '' : styles.noNavbar}`}>
                 <Navbar navbar={navbar}/>
                 <Main>
                     {Children.map(children, child =>

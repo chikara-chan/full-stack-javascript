@@ -12,6 +12,15 @@ const alert = {
     },
     shop = {
         UPDATE_SHOP: 'UPDATE_SHOP'
+    },
+    item = {
+        UPDATE_ITEM: 'UPDATE_ITEM'
+    },
+    cats = {
+        REPLACE_CATS: 'REPLACE_CATS'
+    },
+    modal = {
+        UPDATE_MODAL: 'UPDATE_MODAL'
     }
 
 export default {
@@ -19,5 +28,8 @@ export default {
     ...navbar,
     ...actionbar,
     ...user,
-    ...shop
+    ...shop,
+    ...item,
+    ...cats,
+    ...modal
 }

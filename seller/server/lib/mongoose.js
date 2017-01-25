@@ -21,13 +21,13 @@ mongoose.plugin(schema => {
         docs.forEach(doc => {
             doc.create = doc.create.getTime()
             doc.update = doc.update.getTime()
-            delete doc._id
         })
     })
-    schema.post('findOne', function(doc) {
-        doc.create = doc.create.getTime()
-        doc.update = doc.update.getTime()
-        delete doc._id
+    schema.post('findOne', function(doc ){
+        if (doc) {
+            doc.create = doc.create.getTime()
+            doc.update = doc.update.getTime()
+        }
     })
 })
 

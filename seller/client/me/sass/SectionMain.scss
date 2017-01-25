@@ -1,19 +1,20 @@
 .section-main {
-    .img-wrap {
-        text-align: center;
-        padding: 0.45rem;
-
-        .img {
-            border-radius: 50%;
-            width: 2.4rem;
-            height: 2.4rem;
-        }
-
-        .file {
-            display: none;
-        }
-    }
     .form {
+        .img-wrap {
+            display: table;
+            text-align: center;
+            margin: 0.45rem auto;
+
+            .img {
+                border-radius: 50%;
+                width: 2.4rem;
+                height: 2.4rem;
+            }
+
+            .file {
+                display: none;
+            }
+        }
         .card {
             background: #fff;
             margin-bottom: 0.5rem;

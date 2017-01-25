@@ -3,7 +3,7 @@ import mongoose, {Schema, Types} from '../lib/mongoose'
 let UserSchema, User
 
 UserSchema = new Schema({
-    id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
+    _id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
     username: {type: String},
     password: {type: String},
     nickname: {type: String, default: () => `用户${Types.ObjectId().toString().slice(-8)}`},

@@ -15,7 +15,7 @@ class App extends Component {
         const {actions} = this.props
 
         actions.updateActionbar({
-            title: '我的',
+            title: '个人中心',
             action: '编辑',
             back: false
         })
