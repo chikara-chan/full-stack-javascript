@@ -14,7 +14,11 @@ const alert = {
         UPDATE_SHOP: 'UPDATE_SHOP'
     },
     item = {
-        UPDATE_ITEM: 'UPDATE_ITEM'
+        UPDATE_ITEM: 'UPDATE_ITEM',
+        REPLACE_ITEM: 'REPLACE_ITEM'
+    },
+    items = {
+        REPLACE_ITEMS: 'REPLACE_ITEMS'
     },
     cats = {
         REPLACE_CATS: 'REPLACE_CATS'
@@ -30,6 +34,7 @@ export default {
     ...user,
     ...shop,
     ...item,
+    ...items,
     ...cats,
     ...modal
 }

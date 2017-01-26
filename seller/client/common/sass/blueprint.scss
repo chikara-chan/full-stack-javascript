@@ -1,0 +1,132 @@
+:global {
+.pt-menu {
+  margin: 0;
+  border-radius: 3px;
+  background: #ffffff;
+  min-width: 180px;
+  padding: 5px;
+  list-style: none;
+  text-align: left;
+  color: #182026; }
+
+.pt-menu-divider {
+  display: block;
+  margin: 5px;
+  border-top: 1px solid rgba(16, 22, 26, 0.15); }
+  .pt-dark .pt-menu-divider {
+    border-top-color: rgba(255, 255, 255, 0.15); }
+
+.pt-menu-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  display: block;
+  border-radius: 2px;
+  padding: 7px;
+  line-height: 16px;
+  color: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .pt-menu-item:not(.pt-disabled):hover, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled) {
+    background: #137cbd;
+    cursor: pointer;
+    color: #ffffff; }
+  .pt-menu-item.pt-disabled {
+    cursor: not-allowed;
+    color: rgba(92, 112, 128, 0.5); }
+  .pt-dark .pt-menu-item {
+    color: inherit; }
+    .pt-dark .pt-menu-item.pt-disabled {
+      color: rgba(191, 204, 214, 0.5); }
+  .pt-menu-item::before {
+    line-height: 1;
+    font-family: "Icons16", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    float: left;
+    margin-right: 7px; }
+  .pt-menu-item::before, .pt-menu-item::after {
+    color: #5c7080; }
+  .pt-menu-item .pt-menu-item-label {
+    color: #5c7080; }
+  .pt-menu-item:not(.pt-disabled):hover::before, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled)::before, .pt-menu-item:not(.pt-disabled):hover::after, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled)::after,
+  .pt-menu-item:not(.pt-disabled):hover .pt-menu-item-label, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled) .pt-menu-item-label {
+    color: #ffffff; }
+  .pt-menu-item:not(.pt-disabled):hover.pt-intent-primary, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled).pt-intent-primary {
+    background-color: #137cbd; }
+  .pt-menu-item:not(.pt-disabled):hover.pt-intent-success, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled).pt-intent-success {
+    background-color: #0f9960; }
+  .pt-menu-item:not(.pt-disabled):hover.pt-intent-warning, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled).pt-intent-warning {
+    background-color: #d9822b; }
+  .pt-menu-item:not(.pt-disabled):hover.pt-intent-danger, .pt-submenu > .pt-popover-open > .pt-menu-item:not(.pt-disabled).pt-intent-danger {
+    background-color: #db3737; }
+  .pt-menu-item.pt-disabled {
+    outline: none;
+    cursor: not-allowed;
+    color: rgba(92, 112, 128, 0.5); }
+    .pt-menu-item.pt-disabled::before, .pt-menu-item.pt-disabled::after {
+      color: rgba(92, 112, 128, 0.5); }
+    .pt-menu-item.pt-disabled .pt-menu-item-label {
+      color: rgba(92, 112, 128, 0.5); }
+  .pt-large .pt-menu-item {
+    padding: 10px 7px;
+    line-height: 20px;
+    font-size: 16px; }
+    .pt-large .pt-menu-item::before {
+      line-height: 1;
+      font-family: "Icons20", sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      margin-right: 10px; }
+
+a.pt-menu-item, a.pt-menu-item:hover, .pt-submenu > .pt-popover-open > a.pt-menu-item {
+  text-decoration: none; }
+
+button.pt-menu-item {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left; }
+
+.pt-menu-item-label {
+  float: right;
+  margin-left: 7px; }
+
+.pt-menu-header {
+  display: block;
+  margin: 5px;
+  border-top: 1px solid rgba(16, 22, 26, 0.15);
+  cursor: default;
+  padding-left: 2px; }
+  .pt-dark .pt-menu-header {
+    border-top-color: rgba(255, 255, 255, 0.15); }
+  .pt-menu-header:first-of-type {
+    border-top: none; }
+  .pt-menu-header > h6 {
+    color: #182026;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    margin: 0;
+    padding: 10px 7px 0 1px;
+    line-height: 17px; }
+  .pt-menu-header:first-of-type > h6 {
+    padding-top: 0; }
+  .pt-large .pt-menu-header > h6 {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-size: 18px; }
+  .pt-large .pt-menu-header:first-of-type > h6 {
+    padding-top: 0; }
+}

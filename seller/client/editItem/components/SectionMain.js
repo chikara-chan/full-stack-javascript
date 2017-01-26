@@ -12,6 +12,7 @@ class SectionMain extends Component {
         super()
 
         this.handleClickSubmitBtn = this.handleClickSubmitBtn.bind(this)
+        this.handleClickDeleteBtn = this.handleClickDeleteBtn.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleChangePic = this.handleChangePic.bind(this)
         this.handleClickItem = this.handleClickItem.bind(this)
@@ -22,26 +23,14 @@ class SectionMain extends Component {
     handleClickSubmitBtn(e) {
         const {actions} = this.props
 
-        actions.postAddItem()
+        actions.postEditItem()
         e.preventDefault()
     }
 
-    componentDidMount() {
+    handleClickDeleteBtn(e) {
         const {actions} = this.props
 
-        actions.updateItem({
-            itemName: '',
-            brand: '',
-            price: '',
-            quantity: '',
-            property: '',
-            unit: '',
-            pic: '/assets/item-default.png',
-            desc: '',
-            cat: {
-                catName: ''
-            }
-        })
+        actions.postRemoveItem()
     }
 
     handleChange(e) {
@@ -172,7 +161,12 @@ class SectionMain extends Component {
                     </div>
                     <div className={styles.card}>
                         <div className={styles.field}>
-                            <input type="submit" value="确认上架" className={styles.submitBtn} onClick={this.handleClickSubmitBtn}/>
+                            <input type="submit" value="保存" className={styles.submitBtn} onClick={this.handleClickSubmitBtn}/>
+                        </div>
+                    </div>
+                    <div className={styles.card}>
+                        <div className={styles.field}>
+                            <input type="button" value="删除" className={styles.deleteBtn} onClick={this.handleClickDeleteBtn}/>
                         </div>
                     </div>
                 </form>

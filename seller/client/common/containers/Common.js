@@ -7,6 +7,7 @@ import Main from '../components/Main'
 import actions from '../actions'
 import styles from '../sass/Common'
 import '../sass/global'
+import '../sass/blueprint'
 
 class Common extends Component {
     constructor() {

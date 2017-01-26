@@ -9,14 +9,10 @@ function updateItem(item) {
     }
 }
 
-function getItem() {
-    return (dispatch, getState) => {
-        utils.ajax({
-            url: '/api/item/getItemInfo',
-            type: 'get'
-        }).then(res => {
-            dispatch(updateItem(res.entry))
-        })
+function replaceItem(item) {
+    return {
+        type: types.REPLACE_ITEM,
+        item
     }
 }
 
@@ -24,6 +20,28 @@ function postAddItem() {
     return (dispatch, getState) => {
         utils.ajax({
             url: '/api/item/addItem',
+            data: getState().item
+        }).then(res => {
+            browserHistory.goBack()
+        })
+    }
+}
+
+function postEditItem() {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/item/editItem',
+            data: getState().item
+        }).then(res => {
+            browserHistory.goBack()
+        })
+    }
+}
+
+function postRemoveItem() {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/item/removeItem',
             data: getState().item
         }).then(res => {
             browserHistory.goBack()
@@ -51,7 +69,9 @@ function postItemPic(pic) {
 
 export default {
     updateItem,
-    getItem,
+    replaceItem,
     postAddItem,
-    postItemPic
+    postRemoveItem,
+    postItemPic,
+    postEditItem
 }

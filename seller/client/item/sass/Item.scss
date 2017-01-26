@@ -1,0 +1,27 @@
+.item {
+    display: flex;
+    padding: 0.1rem 0.3rem;
+    border-bottom: 1px solid #dbdbdb;
+
+    .img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .content {
+        padding: 0.1rem 0.3rem;
+        flex: 1;
+
+        .content-info {
+            margin: 0.15rem 0;
+
+            .strong {
+                color: #fa4100;
+            }
+
+            .quantity {
+                float: right;
+            }
+        }
+    }
+}

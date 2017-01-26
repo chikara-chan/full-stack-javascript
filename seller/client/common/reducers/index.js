@@ -5,6 +5,7 @@ import actionbar from './actionbar'
 import user from './user'
 import shop from './shop'
 import item from './item'
+import items from './items'
 import cats from './cats'
 import modal from './modal'
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     user,
     shop,
     item,
+    items,
     cats,
     modal
 })

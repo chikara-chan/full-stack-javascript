@@ -1,6 +1,7 @@
 import {browserHistory} from 'react-router'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
+import items from './items'
 
 function replaceCats(cats) {
     return {
@@ -16,6 +17,9 @@ function getCats() {
             type: 'get'
         }).then(res => {
             dispatch(replaceCats(res.entry))
+            if (res.entry[0]) {
+                items.getItems(res.entry[0].id)(dispatch)
+            }
         })
     }
 }

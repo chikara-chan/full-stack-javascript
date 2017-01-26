@@ -21,6 +21,11 @@ function item(state = initialState, action) {
                 ...state,
                 ...action.item
             }
+        case types.REPLACE_ITEM:
+            return {
+                ...state,
+                ...action.item
+            }
         default:
             return state
     }

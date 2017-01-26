@@ -9,23 +9,36 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const {actions, cats} = this.props
+        const {actions} = this.props
 
         actions.updateActionbar({
-            title: '商品管理',
+            title: '添加商品',
             action: '',
-            back: false
+            back: true
         })
+
+        actions.updateNavbar({
+            show: false
+        })
+
         actions.getCats()
     }
 
+    componentWillUnmount() {
+        const {actions} = this.props
+
+        actions.updateNavbar({
+            show: true
+        })
+    }
+
     render() {
-        const {actions, actionbar, cats, items} = this.props
+        const {item, cats, modal, actions, actionbar} = this.props
 
         return (
             <div className={styles.app}>
                 <Actionbar title={actionbar.title} back={actionbar.back} action={actionbar.action}/>
-                <SectionMain cats={cats} items={items} actions={actions}></SectionMain>
+                <SectionMain cats={cats} modal={modal} item={item} actions={actions}></SectionMain>
             </div>
         )
     }
