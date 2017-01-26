@@ -32,7 +32,7 @@ function switchId(entry) {
         })
 
         return rets
-    } else if (typeof entry === 'object' && !(entry instanceof Types.ObjectId)) {
+    } else if (entry && typeof entry === 'object' && !(entry instanceof Types.ObjectId)) {
         rets = {}
         Object.keys(entry).forEach(key => {
             newKey = key === '_id' && !entry.id ? 'id' : key

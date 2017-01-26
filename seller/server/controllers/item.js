@@ -21,6 +21,53 @@ async function addItem(ctx) {
     }
 }
 
+async function editItem(ctx) {
+    const item = ctx.req.body
+    let ret
+
+    item.cat = item.cat.id
+    delete item.shop
+    ret = await Item.update({_id: item.id}, item)
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+async function removeItem(ctx) {
+    const item = ctx.req.body
+    let ret
+
+    ret = await Item.update({_id: item.id}, {deleted: 1})
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+async function getItems(ctx) {
+    const {_id} = ctx.session.user,
+        {catId} = ctx.query
+    let items, shop
+
+    shop = await Shop.findOne({user: _id}).lean()
+    items = await Item.find({shop: shop._id, cat: catId, deleted: 0}).populate({path:'cat', options: {lean: true}}).lean()
+    if (items) {
+        ctx.body = {
+            entry: items
+        }
+    } else {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
 export default {
-    addItem
+    addItem,
+    editItem,
+    getItems,
+    removeItem
 }

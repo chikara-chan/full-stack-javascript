@@ -6,5 +6,8 @@ const router = new Router({prefix: '/item'})
 
 router.use(checkLogin)
 router.post('/addItem', item.addItem)
+router.get('/getItems', item.getItems)
+router.post('/editItem', item.editItem)
+router.post('/removeItem', item.removeItem)
 
 export default router
