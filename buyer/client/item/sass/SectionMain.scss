@@ -1,0 +1,65 @@
+.section-main {
+    .container {
+        display: flex;
+
+        .menu {
+            min-width: auto;
+            padding: 0;
+            background: transparent;
+
+            .item {
+                position: relative;
+                border-bottom: 1px solid #dbdbdb;
+                padding: 0.3rem 0.3rem;
+                outline: none;
+                border-radius: 0;
+                overflow: visible;
+
+                &.active {
+                    background: #fff;
+                    border-right: 1px solid transparent;
+                }
+
+                &:hover {
+                    background: #fff;
+                    color: inherit;
+                }
+            }
+        }
+
+        .header {
+            background: #eaeaea;
+            font-size: 0.2rem;
+            padding: 0.1rem 0.3rem;
+        }
+
+        .panel {
+            background: #fff;
+            min-height: 11.5rem;
+            flex: 1;
+            border-left: 1px solid #dbdbdb;
+        }
+    }
+
+    .fiexedBtn {
+        position: fixed;
+        right: 0.3rem;
+        bottom: 1.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        padding-top: 0.18rem;
+        background: #428bca;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        .icon {
+            font-size: 0.4rem;
+            font-weight: 600;
+        }
+
+        .text {
+            margin-top: 0.1rem;
+            font-size: 0.2rem;
+        }
+    }
+}

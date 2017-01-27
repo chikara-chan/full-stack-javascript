@@ -1,0 +1,41 @@
+.alert {
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    max-width: 2.5rem;
+    padding: 0.1rem 0.4rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 0.1rem;
+    transform-origin: 0% 0%;
+    transform: translate(-50%, -50%);
+    animation: animate 0.3s;
+
+    @keyframes animate {
+        0% {
+            opacity: 0.5;
+            transform: scale(0.5) translate(-50%, -50%);
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .icon-ok {
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .icon-error {
+        display: block;
+        text-align: center;
+        font-size: 0.7rem;
+        padding: 0.15rem;
+    }
+
+    .message {
+        margin-top: 0;
+        line-height: 1.2;
+    }
+}
