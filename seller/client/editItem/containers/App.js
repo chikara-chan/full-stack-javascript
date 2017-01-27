@@ -12,7 +12,7 @@ class App extends Component {
         const {actions} = this.props
 
         actions.updateActionbar({
-            title: '添加商品',
+            title: '商品编辑',
             action: '',
             back: true
         })
