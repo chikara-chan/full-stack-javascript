@@ -7,6 +7,8 @@ import shop from './shop'
 import item from './item'
 import items from './items'
 import cats from './cats'
+import cart from './cart'
+import schools from './schools'
 import modal from './modal'
 
 const rootReducer = combineReducers({
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
     item,
     items,
     cats,
+    cart,
+    schools,
     modal
 })
 

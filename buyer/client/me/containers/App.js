@@ -29,7 +29,6 @@ class App extends Component {
                 action: '完成'
             })
         } else if (actionbar.action === '完成') {
-            actions.postShop()
             actions.postUser()
             actions.updateActionbar({
                 action: '编辑'
@@ -38,12 +37,12 @@ class App extends Component {
     }
 
     render() {
-        const {actions, shop, user, actionbar} = this.props
+        const {actions, shop, user, actionbar, modal} = this.props
 
         return (
             <div className={styles.app}>
                 <Actionbar title={actionbar.title} back={actionbar.back} action={actionbar.action} handleClickAction={this.handleClickAction}/>
-                <SectionMain actions={actions} actionbar={actionbar} shop={shop} user={user}></SectionMain>
+                <SectionMain actions={actions} modal={modal} actionbar={actionbar} shop={shop} user={user}></SectionMain>
             </div>
         )
     }

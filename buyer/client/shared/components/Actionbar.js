@@ -14,15 +14,15 @@ class Actionbar extends Component {
     }
 
     render() {
-        const {className, title, back, action, handleClickAction} = this.props
+        const {className, title, back, action, handleClickAction, handleClickTitle} = this.props
 
         return (
             <div className={`${styles.actionbar} ${className}`}>
                 <h1 className={styles.back} onClick={this.handleClickBack}>
                     {back &&<i className={`iconfont icon-back ${styles.icon}`}></i>}
                 </h1>
-                <h1 className={styles.title}>{title}</h1>
-                <h1 className={styles.action}  onClick={handleClickAction}>{action}</h1>
+                <h1 className={styles.title} onClick={handleClickTitle}>{title}</h1>
+                <h1 className={styles.action} onClick={handleClickAction}>{action}</h1>
             </div>
         )
     }

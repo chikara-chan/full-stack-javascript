@@ -9,15 +9,11 @@ class SectionMain extends Component {
     constructor() {
         super()
 
-        this.handleClickAddItem = this.handleClickAddItem.bind(this)
         this.handleClickItem = this.handleClickItem.bind(this)
+        this.handleClickCart = this.handleClickCart.bind(this)
         this.state = {
             activeKey: 0
         }
-    }
-
-    handleClickAddItem() {
-        browserHistory.push('/addItem')
     }
 
     handleClickItem(e, eventKey, catId) {
@@ -27,9 +23,13 @@ class SectionMain extends Component {
         actions.getItems(catId)
     }
 
+    handleClickCart() {
+        browserHistory.push('/cart')
+    }
+
     render() {
         const {activeKey} = this.state,
-            {cats, items, actions} = this.props
+            {cats, items, actions, cart} = this.props
 
         return (
             <section className={styles.sectionMain}>
@@ -53,9 +53,11 @@ class SectionMain extends Component {
                         )}
                     </div>
                 </div>
-                <a className={styles.fiexedBtn} onClick={this.handleClickAddItem}>
-                    <i className={`iconfont icon-add ${styles.icon}`}></i>
-                    <p className={styles.text}>添加商品</p>
+                <a className={styles.fiexedBtn} onClick={this.handleClickCart}>
+                    <i className={`iconfont icon-cart ${styles.icon}`}></i>
+                    {!!cart.count &&
+                        <span className={styles.badge}>{cart.count}</span>
+                    }
                 </a>
             </section>
         )

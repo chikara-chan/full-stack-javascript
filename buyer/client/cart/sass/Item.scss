@@ -1,0 +1,72 @@
+.item {
+    display: flex;
+    padding: 0.1rem 0.3rem;
+    border-bottom: 1px solid #dbdbdb;
+
+    .img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .content {
+        padding: 0.1rem 0 0.1rem 0.3rem;
+        flex: 1;
+
+        .content-info {
+            margin: 0.15rem 0;
+
+            .strong {
+                color: #fa4100;
+            }
+            .addon-group {
+                float: right;
+                margin-bottom: 0.1rem;
+                border-radius: 0.06rem 0.06rem;
+                border: 1px solid #dbdbdb;
+                overflow: hidden;
+
+                .addon-left {
+                    float: right;
+                    display: block;
+                    background: #fbfbfb;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    font-size: 0.24rem;
+                    font-weight: 800;
+                    line-height: 0.53rem;
+                    text-align: center;
+                    text-decoration: none;
+                    color: #bebebe;
+                }
+                .number {
+                    float: right;
+                    width: 0.6rem;
+                    height: 0.5rem;
+                    text-align: center;
+                    border-left: 1px solid #dbdbdb;
+                    border-right: 1px solid #dbdbdb;
+                    border-top: none;
+                    border-bottom: none;
+                    font-size: 0.3rem;
+                    color: #fa4100;
+                    letter-spacing: 0.02rem;
+                }
+                .addon-right {
+                    float: right;
+                    display: block;
+                    background: #fbfbfb;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    font-size: 0.3rem;
+                    font-weight: 400;
+                    line-height: 0.5rem;
+                    text-align: center;
+                    text-decoration: none;
+                    color: #bebebe;
+                }
+                .disabled {
+                    color: #e9e9e9;
+                }
+            }
+        }
+    }
+}

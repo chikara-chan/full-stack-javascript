@@ -23,6 +23,13 @@ const alert = {
     cats = {
         REPLACE_CATS: 'REPLACE_CATS'
     },
+    cart = {
+        UPDATE_CART: 'UPDATE_CART',
+        UPDATE_CART_REMARK: 'UPDATE_CART_REMARK'
+    },
+    schools = {
+        REPLACE_SCHOOLS: 'REPLACE_SCHOOLS'
+    },
     modal = {
         UPDATE_MODAL: 'UPDATE_MODAL'
     }
@@ -36,5 +43,7 @@ export default {
     ...item,
     ...items,
     ...cats,
-    ...modal
+    ...schools,
+    ...modal,
+    ...cart
 }

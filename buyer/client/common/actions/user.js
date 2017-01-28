@@ -25,6 +25,22 @@ function postLogin() {
     }
 }
 
+function postSignup() {
+    return (dispatch, getState) => {
+        const {username, password} = getState().user
+
+        utils.ajax({
+            url: '/api/user/signup',
+            data: {
+                username,
+                password
+            }
+        }).then(res => {
+            browserHistory.push('/me')
+        })
+    }
+}
+
 function postLogout() {
     return (dispatch, getState) => {
         utils.ajax({
@@ -78,6 +94,7 @@ function getUser() {
 export default {
     updateUser,
     postLogin,
+    postSignup,
     postLogout,
     postUser,
     postUserAvatar,

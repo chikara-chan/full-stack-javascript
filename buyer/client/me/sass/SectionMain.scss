@@ -57,3 +57,27 @@
         }
     }
 }
+
+
+:global {
+    .dimmer {
+        :local {
+            .modal {
+                display: table !important;
+                width: 30% !important;
+                margin-left: -15% !important;
+
+                .menu {
+                    width: auto !important;
+                    font-size: 0.24rem;
+                    border-radius: 2px !important;
+
+                    .item {
+                        text-align: center;
+                        padding: 0.3rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

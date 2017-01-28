@@ -32,7 +32,7 @@ class SectionMain extends Component {
     onSubmit(e) {
         const {actions} = this.props
 
-        actions.postLogin()
+        actions.postSignup()
         e.preventDefault()
     }
 
@@ -55,10 +55,10 @@ class SectionMain extends Component {
                             <input className={styles.input} type="password" name="password" placeholder="请输入密码" value={user.password} required onChange={this.handleChange}/>
                         </label>
                     </div>
-                    <input className={styles.submit} type="submit" value="登录"/>
+                    <input className={styles.submit} type="submit" value="注册"/>
                 </form>
-                <Link className={styles.link} to="/signup">
-                    快速注册
+                <Link className={styles.link} to="/login">
+                    前往登录
                 </Link>
             </section>
         )

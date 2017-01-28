@@ -7,7 +7,8 @@ const initialState = {
     mobile: '',
     email: '',
     address: '',
-    identity: ''
+    gender: '',
+    age: ''
 }
 
 function user(state = initialState, action) {

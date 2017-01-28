@@ -48,10 +48,6 @@ class SectionMain extends Component {
         const {target} = e,
             {actions} = this.props
 
-        if (~target.name.indexOf('.')) {
-
-        }
-
         actions.updateItem({
             [target.name]: target.dataset.value ? target.dataset.value : target.value
         })

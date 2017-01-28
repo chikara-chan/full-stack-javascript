@@ -58,6 +58,27 @@ const routes = {
                     callback(null, require('./login/containers/App'))
                 }, 'login')
             }
+        }, {
+            path: 'signup',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./signup/containers/App'))
+                }, 'signup')
+            }
+        }, {
+            path: 'selectSchool',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./selectSchool/containers/App'))
+                }, 'selectSchool')
+            }
+        }, {
+            path: 'cart',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./cart/containers/App'))
+                }, 'cart')
+            }
         }]
     }]
 }
