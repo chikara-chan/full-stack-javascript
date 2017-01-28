@@ -4,11 +4,13 @@ let UserSchema, User
 
 UserSchema = new Schema({
     _id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
-    username: {type: String},
+    username: {type: String, unique: true},
     password: {type: String},
     nickname: {type: String, default: () => `用户${Types.ObjectId().toString().slice(-8)}`},
     address: {type: String},
+    gender: {type: Number}, // 0: 男 1: 女
     mobile: {type: Number},
+    age: {type: Number},
     email: {type: String},
     identity: {type: Number},
     avatar: {type: String, default: '/assets/user-default.png'},

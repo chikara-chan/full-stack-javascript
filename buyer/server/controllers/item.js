@@ -48,11 +48,10 @@ async function removeItem(ctx) {
 }
 
 async function getItems(ctx) {
-    const {_id} = ctx.session.user,
-        {catId} = ctx.query
+    const {catId, schoolId} = ctx.query
     let items, shop
 
-    shop = await Shop.findOne({user: _id}).lean()
+    shop = await Shop.findOne({school: schoolId}).lean()
     items = await Item.find({shop: shop._id, cat: catId, deleted: 0}).populate({path:'cat', options: {lean: true}}).lean()
     if (items) {
         ctx.body = {

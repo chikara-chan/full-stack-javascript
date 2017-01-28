@@ -8,7 +8,7 @@ async function login(ctx) {
         cryptoPassword = md5.update(password).digest('hex')
     let user
 
-    user = await User.findOne({username, password: cryptoPassword, level: 1}).lean()
+    user = await User.findOne({username, password: cryptoPassword, level: 0}).lean()
     if (user) {
         ctx.body = {
             message: '登录成功'
@@ -18,6 +18,26 @@ async function login(ctx) {
         ctx.body = {
             status: false,
             message: '登录失败'
+        }
+    }
+}
+
+async function signup(ctx) {
+    const {username, password} = ctx.req.body,
+        md5 = crypto.createHash('md5'),
+        cryptoPassword = md5.update(password).digest('hex')
+    let user
+
+    user = await User.create({username, password: cryptoPassword})
+    if (user) {
+        ctx.body = {
+            message: '注册成功'
+        }
+        ctx.session.user = user
+    } else {
+        ctx.body = {
+            status: false,
+            message: '注册失败'
         }
     }
 }
@@ -62,6 +82,7 @@ async function updateUserInfo(ctx) {
 
 export default {
     login,
+    signup,
     logout,
     updateUserInfo,
     getUserInfo

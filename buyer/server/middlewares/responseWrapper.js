@@ -18,17 +18,17 @@ async function responseWrap(ctx, next) {
         ...ctx.body
     }
     if (ctx.body && ctx.body.entry && typeof ctx.body.entry === 'object') {
-        ctx.body.entry = switchId(ctx.body.entry)
+        ctx.body.entry = adapter(ctx.body.entry)
     }
 }
 
-function switchId(entry) {
+function adapter(entry) {
     let rets, newKey
 
     if (entry instanceof Array) {
         rets = []
         entry.forEach(item => {
-            rets.push(switchId(item))
+            rets.push(adapter(item))
         })
 
         return rets
@@ -36,10 +36,12 @@ function switchId(entry) {
         rets = {}
         Object.keys(entry).forEach(key => {
             newKey = key === '_id' && !entry.id ? 'id' : key
-            rets[newKey] = switchId(entry[key])
+            rets[newKey] = adapter(entry[key])
         })
 
         return rets
+    } else if (entry === null) {
+        return ''
     } else {
         return entry
     }
