@@ -12,7 +12,7 @@ class SectionMain extends Component {
 
     handleClickItem(e) {
         const {actions, item} = this.props
-console.log(actions)
+
         actions.replaceItem(item)
         browserHistory.push('/editItem')
     }
