@@ -23,7 +23,7 @@ mongoose.plugin(schema => {
             doc.update = doc.update.getTime()
         })
     })
-    schema.post('findOne', function(doc ){
+    schema.post('findOne', function(doc){
         if (doc) {
             doc.create = doc.create.getTime()
             doc.update = doc.update.getTime()

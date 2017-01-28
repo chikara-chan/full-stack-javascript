@@ -4,7 +4,7 @@ let UserSchema, User
 
 UserSchema = new Schema({
     _id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
-    username: {type: String},
+    username: {type: String, unique: true},
     password: {type: String},
     nickname: {type: String, default: () => `用户${Types.ObjectId().toString().slice(-8)}`},
     address: {type: String},
