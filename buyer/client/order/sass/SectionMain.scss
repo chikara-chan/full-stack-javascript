@@ -1,2 +1,36 @@
 .section-main {
+    .menu {
+        display: flex;
+        padding: 0;
+        background: #fff;
+
+        .item {
+            position: relative;
+            width: 2.5rem;
+            text-align: center;
+            padding: 0.3rem 0.3rem;
+            outline: none;
+            border-radius: 0;
+
+            &.active {
+                color: #ffe500 !important;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0.88rem;
+                    right: 0.88rem;
+                    height: 0.06rem;
+                    background: #ffe500;
+                }
+            }
+
+            &:hover {
+                background: #fff;
+                color: inherit;
+            }
+        }
+    }
 }

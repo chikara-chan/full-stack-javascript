@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
 import styles from '../sass/Item'
-import Item from './Item'
 
 class SectionMain extends Component {
     constructor() {

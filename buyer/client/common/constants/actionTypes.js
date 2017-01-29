@@ -32,6 +32,12 @@ const alert = {
     },
     modal = {
         UPDATE_MODAL: 'UPDATE_MODAL'
+    },
+    order = {
+        REPLACE_ORDER: 'REPLACE_ORDER'
+    },
+    orders = {
+        REPLACE_ORDERS: 'REPLACE_ORDERS'
     }
 
 export default {
@@ -45,5 +51,7 @@ export default {
     ...cats,
     ...schools,
     ...modal,
-    ...cart
+    ...cart,
+    ...order,
+    ...orders
 }

@@ -9,6 +9,8 @@ import cart from './cart'
 import cats from './cats'
 import schools from './schools'
 import modal from './modal'
+import order from './order'
+import orders from './orders'
 
 export default {
     ...alert,
@@ -21,5 +23,7 @@ export default {
     ...cart,
     ...cats,
     ...modal,
-    ...schools
+    ...schools,
+    ...order,
+    ...orders
 }

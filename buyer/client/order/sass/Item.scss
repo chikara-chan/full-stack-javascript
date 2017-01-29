@@ -1,0 +1,56 @@
+.item {
+    margin-top: 0.3rem;
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+
+    .header {
+        padding: 0.2rem 0.3rem;
+        color: #999;
+
+        .status {
+            float: right;
+            color: #fa4100;
+        }
+    }
+
+    .main {
+        position: relative;
+        display: flex;
+        border-bottom: 1px dashed #dbdbdb;
+        border-top: 1px dashed #dbdbdb;
+        padding: 0.2rem 0.3rem;
+        .img {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+        .content {
+            padding: 0.1rem 0.2rem 0 0.3rem;
+            flex: 1;
+
+            .content-info {
+                margin: 0.2rem 0;
+
+                &.light {
+                    color: #999;
+                }
+            }
+        }
+
+        .icon {
+            position: absolute;
+            right: 0.5rem;
+            font-size: 0.34rem;
+            top: 45%;
+        }
+    }
+
+    .footer {
+        padding: 0.2rem 0.3rem;
+        text-align: right;
+
+        .strong {
+            color: #fa4100;
+        }
+    }
+}

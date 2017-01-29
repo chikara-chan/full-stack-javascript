@@ -2,6 +2,7 @@ import {browserHistory} from 'react-router'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
 import schools from './schools'
+import order from './order'
 
 function updateCheckedNumber(item, number) {
     return {
@@ -45,7 +46,8 @@ function postCart(addItem) {
             url: '/api/order/submitOrder',
             data: cart
         }).then(res => {
-            console.log(res)
+            dispatch(order.replaceOrder(res.entry))
+            browserHistory.push('/orderDetail')
         })
     }
 }
