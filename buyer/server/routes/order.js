@@ -6,5 +6,6 @@ const router = new Router({prefix: '/order'})
 
 router.use(checkLogin)
 router.post('/submitOrder', order.submitOrder)
+router.get('/getOrders', order.getOrders)
 
 export default router
