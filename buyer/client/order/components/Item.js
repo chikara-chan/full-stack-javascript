@@ -24,7 +24,6 @@ class SectionMain extends Component {
                         <p className={styles.contentInfo}>{items[0].brand && `[${items[0].brand}]`}{items[0].itemName} {items[0].property} 等</p>
                         <p className={`${styles.contentInfo} ${styles.light}`}>共{order.count}件商品</p>
                     </div>
-                    <i className={`iconfont icon-more ${styles.icon}`}></i>
                 </div>
                 <div className={styles.footer}>实付: <span className={styles.strong}>￥{order.amount}</span></div>
             </div>
