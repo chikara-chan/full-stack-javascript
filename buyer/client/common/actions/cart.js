@@ -52,9 +52,16 @@ function postCart(addItem) {
     }
 }
 
+function clearCart() {
+    return {
+        type: types.CLEAR_CART
+    }
+}
+
 export default {
     updateCheckedNumber,
     addToCart,
     postCart,
-    updateCart
+    updateCart,
+    clearCart
 }

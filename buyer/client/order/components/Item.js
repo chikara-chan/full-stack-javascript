@@ -8,15 +8,21 @@ class SectionMain extends Component {
     constructor() {
         super()
 
+        this.handleClick = this.handleClick.bind(this)
     }
 
+    handleClick() {
+        const {order, actions} = this.props
+
+        actions.getOrder(order.id)
+    }
 
     render() {
-         const {order} = this.props,
+        const {order} = this.props,
             {item: items} = order
 
         return (
-            <div className={styles.item}>
+            <div className={styles.item} onClick={this.handleClick}>
                 <div className={styles.header}>{formatDate(order.create)}<span className={styles.status}>{switchStatus(order.status)}</span></div>
                 <div className={styles.main}>
                     <img className={styles.img} src={items[0].pic}/>

@@ -25,7 +25,8 @@ const alert = {
     },
     cart = {
         UPDATE_CART: 'UPDATE_CART',
-        UPDATE_CART_REMARK: 'UPDATE_CART_REMARK'
+        UPDATE_CART_REMARK: 'UPDATE_CART_REMARK',
+        CLEAR_CART: 'CLEAR_CART'
     },
     schools = {
         REPLACE_SCHOOLS: 'REPLACE_SCHOOLS'

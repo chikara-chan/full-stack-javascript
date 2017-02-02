@@ -21,6 +21,7 @@ class SectionMain extends Component {
 
         if (user.nickname && user.mobile && user.address && cart.items.length !== 0) {
             actions.postCart()
+            actions.clearCart()
         }
     }
 

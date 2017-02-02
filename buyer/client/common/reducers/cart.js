@@ -42,6 +42,8 @@ function cart(state = initialState, action) {
                 ...state,
                 remark: action.cart.remark
             }
+        case types.CLEAR_CART:
+            return initialState
         default:
             return state
     }

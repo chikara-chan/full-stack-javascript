@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {browserHistory} from 'react-router'
 import SectionMain from '../components/SectionMain'
 import styles from '../sass/App'
 import Actionbar from '../../shared/components/Actionbar'
@@ -9,7 +10,11 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const {actions} = this.props
+        const {actions, cart} = this.props
+
+        if (cart.items.length === 0) {
+            browserHistory.goBack()
+        }
 
         actions.updateActionbar({
             title: '购物车',
