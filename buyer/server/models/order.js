@@ -1,6 +1,7 @@
 import mongoose, {Schema, Types} from '../lib/mongoose'
 import './item'
 import './user'
+import './shop'
 
 let OrderSchema, Order
 
@@ -16,7 +17,8 @@ OrderSchema = new mongoose.Schema({
     deleted: {type: Number, default: 0}, // 0: 否 1: 是
     item: [{type: Schema.Types.ObjectId, ref: 'Item'}],
     buyer: {type: Schema.Types.ObjectId, ref: 'User'},
-    seller: {type: Schema.Types.ObjectId, ref: 'User'}
+    seller: {type: Schema.Types.ObjectId, ref: 'User'},
+    shop: {type: Schema.Types.ObjectId, ref: 'Shop'},
 })
 Order = mongoose.model('Order', OrderSchema)
 
