@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
+import mongooseLong from 'mongoose-long'
 import config from '../config'
 
+mongooseLong(mongoose)
 mongoose.connect(`mongodb://${config.host}:${config.port}/${config.db}`)
 mongoose.Promise = Promise
 mongoose.plugin(schema => {
