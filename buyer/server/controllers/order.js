@@ -104,9 +104,22 @@ async function cancelOrder(ctx) {
     }
 }
 
+async function receiveOrder(ctx) {
+    const {id} = ctx.req.body
+    let ret
+
+    ret = await Order.update({_id: id}, {status: 104})
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
 export default {
     submitOrder,
     getOrders,
     getOrder,
-    cancelOrder
+    cancelOrder,
+    receiveOrder
 }
