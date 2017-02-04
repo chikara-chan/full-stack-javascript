@@ -10,12 +10,19 @@ class SectionMain extends Component {
         super()
 
         this.handleCancel = this.handleCancel.bind(this)
+        this.handleReceive = this.handleReceive.bind(this)
     }
 
     handleCancel() {
         const {order, actions} = this.props
 
         actions.cancelOrder(order.id)
+    }
+
+    handleReceive() {
+        const {order, actions} = this.props
+
+        actions.receiveOrder(order.id)
     }
 
     componentDidMount() {
@@ -87,6 +94,11 @@ class SectionMain extends Component {
                 {order.status === 100 &&
                     <div className={styles.field}>
                         <input className={styles.logout} onClick={this.handleCancel} type="button" value="取消订单"/>
+                    </div>
+                }
+                {order.status === 102 &&
+                    <div className={styles.field}>
+                        <input className={styles.logout} onClick={this.handleReceive} type="button" value="确认收货"/>
                     </div>
                 }
             </section>
