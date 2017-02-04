@@ -1,2 +1,58 @@
 .section-main {
+    .header {
+        background: #428bca;
+        color: #fff;
+        .action {
+            float: right;
+            padding: 0.2rem 0.3rem;
+
+            .icon {
+                display: block;
+                text-align: center;
+                font-size: 0.3rem;
+            }
+
+            .desc {
+                margin: 0;
+                margin-top: 0.06rem;
+                font-size: 0.2rem;
+            }
+        }
+        .banner {
+            clear: both;
+            font-size: 0.32rem;
+            padding: 0.5rem 0.3rem 0.8rem 0.6rem;
+
+            .badge {
+                background: rgba(255, 255, 255, 0.7);
+                color: #428bca;
+                font-size: 0.2rem;
+                border-radius: 20% / 50%;
+                padding: 0.06rem 0.1rem;
+                margin-left: 0.1rem;
+            }
+        }
+        .menu {
+            display: flex;
+            padding: 0;
+            background: rgba(0, 0, 0, 0.03);
+            color: #fff;
+
+            .link {
+                display: block;
+                width: 2.5rem;
+                padding-top: 0.25rem;
+                text-decoration: none;
+                text-align: center;
+
+                .icon {
+                    font-size: 0.3rem;
+                }
+
+                .title {
+                    margin-top: 0.1rem;
+                }
+            }
+        }
+    }
 }

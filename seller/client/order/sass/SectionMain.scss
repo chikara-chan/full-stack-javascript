@@ -1,2 +1,39 @@
 .section-main {
+    .menu {
+        display: flex;
+        padding: 0;
+        background: #fff;
+
+        .item {
+            position: relative;
+            width: 1.5rem;
+            text-align: center;
+            padding: 0.3rem 0.3rem;
+            outline: none;
+            border-radius: 0;
+
+            &.active {
+                color: #428bca !important;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0.38rem;
+                    right: 0.38rem;
+                    height: 0.06rem;
+                    background: #428bca;
+                }
+            }
+
+            &:hover {
+                background: #fff;
+                color: inherit;
+            }
+        }
+    }
+    .panel {
+        padding-bottom: 0.3rem;
+    }
 }

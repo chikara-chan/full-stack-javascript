@@ -24,6 +24,13 @@ const routes = {
                 }, 'order')
             }
         }, {
+            path: 'orderDetail',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./orderDetail/containers/App'))
+                }, 'orderDetail')
+            }
+        }, {
             path: 'item',
             getComponent(nextState, callback) {
                 require.ensure([], require => {

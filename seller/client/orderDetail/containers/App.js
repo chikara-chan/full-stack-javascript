@@ -12,19 +12,31 @@ class App extends Component {
         const {actions} = this.props
 
         actions.updateActionbar({
-            title: '订单管理',
+            title: '订单详情',
             action: '',
-            back: false
+            back: true
+        })
+
+        actions.updateNavbar({
+            show: false
+        })
+    }
+
+    componentWillUnmount() {
+        const {actions} = this.props
+
+        actions.updateNavbar({
+            show: true
         })
     }
 
     render() {
-        const {actions, orders, actionbar} = this.props
+        const {actions, order, actionbar} = this.props
 
         return (
             <div className={styles.app}>
                 <Actionbar title={actionbar.title} back={actionbar.back} action={actionbar.action}/>
-                <SectionMain actions={actions} orders={orders}></SectionMain>
+                <SectionMain actions={actions} order={order}></SectionMain>
             </div>
         )
     }

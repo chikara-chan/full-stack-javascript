@@ -8,6 +8,8 @@ import item from './item'
 import items from './items'
 import cats from './cats'
 import modal from './modal'
+import order from './order'
+import orders from './orders'
 
 const rootReducer = combineReducers({
     alert,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
     item,
     items,
     cats,
+    order,
+    orders,
     modal
 })
 

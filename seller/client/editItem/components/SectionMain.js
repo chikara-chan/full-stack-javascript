@@ -56,7 +56,7 @@ class SectionMain extends Component {
     }
 
     handleOpenModal(e) {
-        const {actions} = this.props,
+        const {actions} = this.props
 
         actions.updateModal({
             show: true

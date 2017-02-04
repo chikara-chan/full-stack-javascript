@@ -1,0 +1,140 @@
+.section-main {
+    margin-bottom: 0.4rem;
+    .header {
+        position: relative;
+        text-align: center;
+        padding: 0.4rem;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #dbdbdb;
+            top: 50%;
+            z-index: -1;
+        }
+
+        .title {
+            font-size: 0.28rem;
+            background: #f6f6f6;
+            padding: 0 0.3rem;
+        }
+    }
+
+    .time {
+        margin: -0.1rem 0 0.2rem 0;
+        text-align: center;
+    }
+
+    .buyer {
+        position: relative;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        padding: 0.3rem 0.4rem 0.3rem 0.9rem;
+        .receiver {
+            margin: 0;
+            .mobile {
+                float: right;
+            }
+        }
+        .address {
+            margin: 0.2rem 0 0 0;
+        }
+        .remark {
+            margin: 0.2rem 0 0 0;
+        }
+        .icon {
+            position: absolute;
+            top: 0.28rem;
+            left: 0.35rem;
+            font-size: 0.28rem;
+        }
+    }
+
+    .panel {
+        margin-top: 0.4rem;
+        background: #fff;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        .title-wrap {
+            padding: 0.2rem 0.3rem;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            align-items: center;
+            .img {
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 30%;
+            }
+            .title {
+                padding-left: 0.1rem;
+            }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 0.3rem 0.3rem;
+            .col-right {
+                .amount {
+                    color: #fa4100;
+                    font-size: 0.28rem;
+                }
+            }
+        }
+
+        .footer-attach {
+            padding: 0.2rem 0.3rem;
+            text-align: center;
+            border-top: 1px solid #dbdbdb;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            .icon {
+                font-size: 0.24rem;
+                margin-right: 0.1rem;
+            }
+        }
+    }
+
+    .page-footer {
+        margin-top: 0.4rem;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        padding: 0.1rem 0.3rem;
+    }
+
+    .field {
+        margin-top: 0.4rem;
+        .btn {
+            width: 100%;
+            padding: 0.2rem 0;
+            background: #fff;
+            border: none;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+
+            & + .btn {
+                margin-top: 0.3rem;
+            }
+
+            &.danger {
+                background: #c9302c;
+                color: #fff;
+            }
+
+            &.primary {
+                background: #428bca;
+                color: #fff;
+            }
+        }
+
+    }
+}
