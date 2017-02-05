@@ -23,6 +23,27 @@ class SectionMain extends Component {
     }
 
     componentDidMount() {
+        const {actions} = this.props,
+            activeKey = +utils.getURLParams().tagIndex
+
+        if (activeKey === 0) {
+            actions.getOrders([100])
+            this.setState({
+                activeKey: 0
+            })
+        } else if (activeKey === 1) {
+            actions.getOrders([101])
+            this.setState({
+                activeKey: 1
+            })
+        } else if (activeKey === 2) {
+            actions.getOrders([102])
+            this.setState({
+                activeKey: 2
+            })
+        } else {
+            actions.getOrders([100])
+        }
     }
 
     render() {
