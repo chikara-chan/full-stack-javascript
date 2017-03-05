@@ -1,0 +1,23 @@
+.item {
+    display: flex;
+    padding: 5px 15px;
+    border-bottom: 1px solid #dbdbdb;
+
+    .img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-top: 15px;
+    }
+    .content {
+        padding: 15px 0 15px 15px;
+        flex: 1;
+
+        .content-info {
+            margin: 10px 0;
+
+            .strong {
+                float: right;
+            }
+        }
+    }
+}

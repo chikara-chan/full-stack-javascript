@@ -1,0 +1,26 @@
+:global {
+    * {
+        box-sizing: border-box;
+    }
+
+    *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    .clearfix::after {
+        display: table;
+        content: '';
+        clear: both;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    body {
+        line-height: 1;
+        color: #333;
+        background-color: #f6f6f6;
+        font-size: 14px;
+    }
+}

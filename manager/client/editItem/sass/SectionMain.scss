@@ -1,0 +1,90 @@
+.section-main {
+    .form {
+        .card {
+            background: #fff;
+            margin-bottom: 25px;
+            border-top: 1px solid #dbdbdb;
+
+            .field {
+                border-bottom: 1px solid #dbdbdb;
+
+                .label {
+                    display: flex;
+                    padding: 12px 50px 12px 0;
+
+                    .title {
+                        width: 100px;
+                        padding: 3px 0 3px 15px;
+                    }
+
+                    .input {
+                        flex: 1;
+                        background: #fff;
+                        outline: none;
+                        border: none;
+                        padding: 3px 0;
+                        resize: none;
+
+                        &:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0 1000px #fff inset;
+                        }
+                        &.disabled {
+                            color: #aaa;
+                        }
+                    }
+
+                    .img {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .file {
+                        display: none;
+                    }
+                }
+
+                .submitBtn {
+                    width: 100%;
+                    background: #428bca;
+                    color: #fff;
+                    text-align: center;
+                    padding: 15px;
+                    border: none;
+                }
+
+                .deleteBtn {
+                    width: 100%;
+                    background: #d9534f;
+                    color: #fff;
+                    text-align: center;
+                    padding: 15px;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+
+:global {
+    .dimmer {
+        :local {
+            .modal {
+                display: table !important;
+                width: 50% !important;
+                margin-left: -25% !important;
+
+                .menu {
+                    width: auto !important;
+                    font-size: 12px;
+                    border-radius: 2px !important;
+
+                    .item {
+                        text-align: center;
+                        padding: 15px 50px;
+                    }
+                }
+            }
+        }
+    }
+}

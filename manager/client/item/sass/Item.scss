@@ -1,0 +1,27 @@
+.item {
+    display: flex;
+    padding: 5px 15px;
+    border-bottom: 1px solid #dbdbdb;
+
+    .img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .content {
+        padding: 5px 15px;
+        flex: 1;
+
+        .content-info {
+            margin: 7px 0;
+
+            .strong {
+                color: #fa4100;
+            }
+
+            .quantity {
+                float: right;
+            }
+        }
+    }
+}

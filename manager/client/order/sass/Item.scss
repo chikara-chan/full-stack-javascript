@@ -1,0 +1,56 @@
+.item {
+    margin-top: 15px;
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+
+    .header {
+        padding: 10px 15px;
+        color: #999;
+
+        .status {
+            float: right;
+            color: #fa4100;
+        }
+    }
+
+    .main {
+        position: relative;
+        display: flex;
+        border-bottom: 1px dashed #dbdbdb;
+        border-top: 1px dashed #dbdbdb;
+        padding: 10px 15px;
+        .img {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+        .content {
+            padding: 5px 10px 0 15px;
+            flex: 1;
+
+            .content-info {
+                margin: 10px 0;
+
+                &.light {
+                    color: #999;
+                }
+            }
+        }
+
+        .icon {
+            position: absolute;
+            right: 25px;
+            font-size: 0.34rem;
+            top: 45%;
+        }
+    }
+
+    .footer {
+        padding: 10px 15px;
+        text-align: right;
+
+        .strong {
+            color: #fa4100;
+        }
+    }
+}

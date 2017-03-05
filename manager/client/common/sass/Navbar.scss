@@ -1,0 +1,28 @@
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 224px;
+  background: #3E4452;
+  .logo {
+    padding: 20px 0 20px 40px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 200;
+  }
+  .menu {
+    background: #3E4452;
+    .item{
+      color: #fff;
+      padding-left: 30px;
+      font-size: 14px;
+      .link {
+        color: #fff;
+      }
+      &.active {
+        background: #2497F0;
+      }
+    }
+  }
+}
