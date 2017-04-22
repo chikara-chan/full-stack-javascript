@@ -1,15 +1,47 @@
+import {Types} from 'mongoose'
 import Order from '../models/order'
 import Shop from '../models/shop'
+import User from '../models/user'
 import utils from '../lib/utils'
 
 async function getOrders(ctx) {
-    const {_id} = ctx.session.user,
-        {status} = ctx.query
-    let order
+    let order, users,
+        data = {}
 
-    order = await Order.find({seller: _id, status: { $in: status}}).populate({path:'item buyer seller shop', options: {lean: true}}).lean()
-    utils.deleteKeys(order.buyer, 'username password')
-    utils.deleteKeys(order.seller, 'username password')
+    if (ctx.query.nickname || ctx.query.mobile) {
+        users = await User
+            .find(utils.filterNullKeys({
+                nickname: ctx.query.nickname,
+                mobile: ctx.query.mobile
+            }))
+            .lean()
+
+        data.buyer = users ? {$in: users.map(user => user._id)} : new Types.ObjectId()
+    }
+    if (ctx.query.id) {
+        data._id = ctx.query.id
+    }
+    if (ctx.query.timeStart || ctx.query.timeEnd) {
+        data.create = utils.filterNullKeys({
+            $gt: ctx.query.timeStart,
+            $lt: ctx.query.timeEnd
+        })
+    }
+    console.log(data)
+    try {
+        order = await Order
+            .find(data)
+            .populate({
+                path:'item buyer seller shop',
+                options: { lean: true }
+            })
+            .lean()
+            .sort('-create')
+        utils.deleteKeys(order.buyer, 'username password')
+        utils.deleteKeys(order.seller, 'username password')
+    } catch (e) {
+        order = []
+    }
     if (order) {
         ctx.body = {
             entry: order
@@ -26,7 +58,7 @@ async function getOrder(ctx) {
     let order,
         item = [],
         ids = {}
-
+console.log(id)
     order = await Order.findOne({_id: id}).populate({path:'item buyer seller shop', options: {lean: true}}).lean()
     utils.deleteKeys(order.buyer, 'username password')
     utils.deleteKeys(order.seller, 'username password')

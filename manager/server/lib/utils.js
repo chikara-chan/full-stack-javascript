@@ -16,6 +16,18 @@ function filterKeys(obj, keys) {
     return rets
 }
 
+function filterNullKeys(obj) {
+    let rets = {}
+
+    Object.keys(obj).forEach(key => {
+        if (obj[key] != null && obj[key] != '') {
+            rets[key] = obj[key]
+        }
+    })
+
+    return rets
+}
+
 function deleteKeys(obj, keys) {
     if (typeof obj !== 'object') {
         return
@@ -32,5 +44,6 @@ function deleteKeys(obj, keys) {
 
 export default {
     filterKeys,
-    deleteKeys
+    deleteKeys,
+    filterNullKeys
 }
