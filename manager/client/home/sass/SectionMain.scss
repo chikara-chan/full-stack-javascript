@@ -1,56 +1,38 @@
 .section-main {
-    .header {
-        background: #428bca;
-        color: #fff;
-        .action {
-            float: right;
-            padding: 10px 15px;
-
-            .icon {
-                display: block;
-                text-align: center;
-                font-size: 15px;
-            }
-
-            .desc {
-                margin: 0;
-                margin-top: 3px;
-                font-size: 10px;
-            }
+    .title {
+        font-size: 24px;
+        font-weight: 300;
+        padding-bottom: 30px;
+    }
+    .row {
+      margin-left: -40px;
+      margin-right: -40px;
+      margin-bottom: 20px;
+        .col {
+          padding: 0 40px;
         }
-        .banner {
-            clear: both;
-            font-size: 16px;
-            padding: 25px 15px 40px 30px;
-
-            .badge {
-                background: rgba(255, 255, 255, 0.7);
-                color: #428bca;
-                font-size: 10px;
-                border-radius: 20% / 50%;
-                padding: 3px 5px;
-                margin-left: 5px;
-            }
+        .col > div{
+          font-size: 18px;
+          padding: 0;
         }
-        .menu {
-            display: flex;
-            padding: 0;
-            background: rgba(0, 0, 0, 0.03);
-            color: #fff;
-
-            .link {
-                display: block;
-                width: 125px;
-                padding-top: 12px;
-                text-decoration: none;
-                text-align: center;
-
-                .icon {
-                    font-size: 15px;
+        .card {
+            cursor: pointer;
+            > :global(.ant-card-body) {
+                padding: 0;
+            }
+            .sub-col {
+                height: 80px;
+                line-height: 80px;
+                &:first-child {
+                    float: left;
+                    width: 80px;
+                    font-size: 40px;
+                    text-align: center;
                 }
-
-                .title {
-                    margin-top: 5px;
+                &:last-child {
+                    margin-left: 80px;
+                    font-size: 18px;
+                    padding-left: 20px;
                 }
             }
         }

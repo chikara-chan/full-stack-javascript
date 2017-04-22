@@ -21,7 +21,7 @@ class Common extends Component {
 
         return (
             <div className={`${styles.app} ${navbar.show ? '' : styles.noNavbar}`}>
-                <Header/>
+                <Header actions={props.actions}/>
                 <Navbar navbar={navbar}/>
                 <Main>
                     {Children.map(children, child =>

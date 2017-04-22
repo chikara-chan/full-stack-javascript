@@ -10,6 +10,7 @@
     color: #fff;
     font-size: 30px;
     font-weight: 200;
+    cursor: pointer;
   }
   .menu {
     background: #3E4452;
@@ -20,9 +21,9 @@
       .link {
         color: #fff;
       }
-      &.active {
-        background: #2497F0;
-      }
+    }
+    .active {
+        background: #2497F0 !important;
     }
   }
 }

@@ -39,8 +39,20 @@ function switchStatus(status) {
     }
 }
 
+function switchPayType(payType) {
+    switch (payType) {
+        case 0:
+            return '未支付'
+        case 101:
+            return '已支付'
+        default:
+            return ''
+    }
+}
+
 export default {
     switchShopType,
     switchGender,
-    switchStatus
+    switchStatus,
+    switchPayType
 }

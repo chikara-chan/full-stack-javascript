@@ -26,12 +26,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const el = document.createElement('canvas')
-
-        el.width = 0
-        el.height = 0
-        el.id = 'canvas'
-        document.body.appendChild(el)
         canvas.init()
     }
 
@@ -41,6 +35,7 @@ class App extends Component {
         return (
             <div className={styles.app}>
                 <SectionMain {...props}></SectionMain>
+                <canvas id="canvas" width="0" height="0"></canvas>
             </div>
         )
     }

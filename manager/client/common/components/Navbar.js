@@ -1,11 +1,19 @@
 import React, {Component} from 'react'
-import {IndexLink, Link} from 'react-router'
+import {IndexLink, Link, browserHistory} from 'react-router'
 import styles from '../sass/Navbar'
 import {Menu, Icon} from 'antd'
+
+function isActive(path) {
+  return typeof window !== 'undefined' ? ~window.location.pathname.indexOf(path) : false
+}
 
 class Navbar extends Component {
     constructor() {
         super()
+    }
+
+    handleClick = () => {
+        browserHistory.push('/')
     }
 
     render() {
@@ -13,25 +21,31 @@ class Navbar extends Component {
 
         return (
             <nav className={`${styles.navbar} ${navbar.show ? '' : styles.hide}`}>
-              <div className={styles.logo}>C R M</div>
+              <div className={styles.logo} onClick={this.handleClick}>C R M</div>
               <Menu className={styles.menu}
                 theme ="dark">
-                <Menu.Item className={styles.item} activeClassName={styles.active}
+                <Menu.Item className={`${styles.item} ${isActive('/me') ? styles.active : ''}`}
                   key="0">
+                  <Link to="/me" className={styles.link}>
+                    <Icon type="user"/>用户管理
+                  </Link>
+                </Menu.Item>
+                <Menu.Item className={`${styles.item} ${isActive('/order') ? styles.active : ''}`}
+                  key="1">
                   <Link to="/order" className={styles.link}>
                     <Icon type="file-text"/>订单管理
                   </Link>
                 </Menu.Item>
-                <Menu.Item className={styles.item} activeClassName={styles.active}
-                  key="1">
+                <Menu.Item className={`${styles.item} ${isActive('/item') ? styles.active : ''}`}
+                  key="2">
                   <Link to="/item" className={styles.link}>
                     <Icon type="appstore-o"/>商品管理
                   </Link>
                 </Menu.Item>
-                <Menu.Item className={styles.item} activeClassName={styles.active}
-                  key="2">
+                <Menu.Item className={`${styles.item} ${isActive('/shop') ? styles.active : ''}`}
+                  key="3">
                   <Link to="/me" className={styles.link}>
-                    <Icon type="user"/>店铺管理
+                    <Icon type="shop"/>店铺管理
                   </Link>
                 </Menu.Item>
               </Menu>

@@ -9,14 +9,12 @@ function replaceOrders(orders) {
     }
 }
 
-function getOrders(status) {
+function getOrders(data) {
     return (dispatch, getState) => {
         utils.ajax({
             url: '/api/order/getOrders',
             type: 'get',
-            data: {
-                status
-            }
+            data
         }).then(res => {
             dispatch(replaceOrders(res.entry))
         })

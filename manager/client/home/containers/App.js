@@ -10,15 +10,14 @@ class App extends Component {
     componentDidMount() {
         const {actions} = this.props
 
-        actions.getShop()
     }
 
     render() {
-        const {actions, shop} = this.props
+        const {actions} = this.props
 
         return (
             <div className={styles.app}>
-                <SectionMain actions={actions} shop={shop}></SectionMain>
+                <SectionMain actions={actions}></SectionMain>
             </div>
         )
     }

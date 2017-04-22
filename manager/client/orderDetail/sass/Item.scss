@@ -1,11 +1,13 @@
 .item {
     display: flex;
-    padding: 5px 15px;
+    padding: 5px 15px 15px 15px;
     border-bottom: 1px solid #dbdbdb;
+    max-width: 500px;
+    margin-left: 100px;
 
     .img {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 80px;
+        height: 80px;
         margin-top: 15px;
     }
     .content {

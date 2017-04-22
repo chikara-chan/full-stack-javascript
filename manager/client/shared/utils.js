@@ -2,8 +2,11 @@ import request from 'superagent'
 import {browserHistory} from 'react-router'
 import store from '../common/store/store'
 import alert from '../common/actions/alert'
+import { message } from 'antd'
 
-let timer
+message.config({
+  top: 63
+})
 
 /**
  * @param  {Object} options
@@ -26,40 +29,22 @@ function ajax(options) {
     })
     action = options.type === 'get' ? 'query' : 'send'
 
-    return new Promise(resolve => {
+    return new Promise((resolve,reject) => {
         promise[action](options.data).then(res => {
             if (res.body.responseCode === -1) {
                 browserHistory.push('/login')
             } else if (!res.body.status) {
-                clearTimeout(timer)
-                store.dispatch(alert.updateAlert({
-                    show: true,
-                    status: false,
-                    message: res.body.message
-                }))
-                timer = setTimeout(() => {
-                    store.dispatch(alert.updateAlert({
-                        show: false,
-                    }))
-                }, 1000)
+                message.error(res.body.message)
+                reject(new Error(res.body.message))
             } else if (!res.body.entry) {
-                clearTimeout(timer)
-                store.dispatch(alert.updateAlert({
-                    show: true,
-                    status: true,
-                    message: res.body.message
-                }))
-                timer = setTimeout(() => {
-                    store.dispatch(alert.updateAlert({
-                        show: false,
-                    }))
-                    resolve(res.body)
-                }, 1000)
+                message.success(res.body.message)
+                resolve(res.body)
             } else {
                 resolve(res.body)
             }
         }).catch(err => {
-            store.dispatch(alert.showAlert(res.body.status, res.body.message))
+          message.error('网络异常，操作失败')
+          reject(err)
         })
     })
 }

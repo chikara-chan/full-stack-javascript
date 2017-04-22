@@ -19,7 +19,6 @@ function getOrder(id) {
             }
         }).then(res => {
             dispatch(replaceOrder(res.entry))
-            browserHistory.push('/orderDetail')
         })
     }
 }
