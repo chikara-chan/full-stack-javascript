@@ -47,6 +47,40 @@ async function getUserInfo(ctx) {
     }
 }
 
+async function getUsers(ctx) {
+    let data = ctx.query
+    let users
+
+    data = utils.filterNullKeys(data)
+    if (data._id) {
+        data._id = data.id
+        delete data.id
+    }
+
+    try {
+        users = await User.find(data).lean()
+    } catch (e) {
+        users = []
+    }
+
+    users = users.map(user => {
+        return utils.filterKeys({
+            ...user,
+            identity: user.identity?user.identity.toString():''
+        }, 'username password')
+    }).filter(user => user.level != 2)
+
+    if (users) {
+        ctx.body = {
+            entry: users
+        }
+    } else {
+        ctx.body = {
+            status: false,
+        }
+    }
+}
+
 async function updateUserInfo(ctx) {
     const userInfo = ctx.req.body,
         {_id} = ctx.session.user
@@ -65,5 +99,6 @@ export default {
     login,
     logout,
     updateUserInfo,
-    getUserInfo
+    getUserInfo,
+    getUsers
 }

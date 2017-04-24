@@ -27,7 +27,7 @@ async function getOrders(ctx) {
             $lt: ctx.query.timeEnd
         })
     }
-    console.log(data)
+
     try {
         order = await Order
             .find(data)
@@ -58,7 +58,7 @@ async function getOrder(ctx) {
     let order,
         item = [],
         ids = {}
-console.log(id)
+
     order = await Order.findOne({_id: id}).populate({path:'item buyer seller shop', options: {lean: true}}).lean()
     utils.deleteKeys(order.buyer, 'username password')
     utils.deleteKeys(order.seller, 'username password')
@@ -96,6 +96,18 @@ async function rejectOrder(ctx) {
     }
 }
 
+async function setOrder(ctx) {
+    const {id, status} = ctx.req.body
+    let ret
+
+    ret = await Order.update({_id: id}, {status})
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
 async function receiveOrder(ctx) {
     const {id} = ctx.req.body
     let ret
@@ -125,5 +137,6 @@ export default {
     getOrder,
     rejectOrder,
     receiveOrder,
-    sendOrder
+    sendOrder,
+    setOrder
 }

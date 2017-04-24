@@ -7,6 +7,7 @@ const router = new Router({prefix: '/item'})
 router.use(checkLogin)
 router.post('/addItem', item.addItem)
 router.get('/getItems', item.getItems)
+router.get('/getItem', item.getItem)
 router.post('/editItem', item.editItem)
 router.post('/removeItem', item.removeItem)
 

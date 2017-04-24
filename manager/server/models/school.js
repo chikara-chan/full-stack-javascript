@@ -4,7 +4,7 @@ let SchoolSchema, School
 
 SchoolSchema = new mongoose.Schema({
     _id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
-    schoolName: {type: String}
+    schoolName: {type: String, unique: true}
 
 })
 School = mongoose.model('School', SchoolSchema)

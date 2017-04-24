@@ -1,4 +1,5 @@
 import Shop from '../models/shop'
+import utils from '../lib/utils'
 import Item from '../models/item'
 
 async function addItem(ctx) {
@@ -48,15 +49,33 @@ async function removeItem(ctx) {
 }
 
 async function getItems(ctx) {
-    const {_id} = ctx.session.user,
-        {catId} = ctx.query
+    const {school,cat} = ctx.query
     let items, shop
 
-    shop = await Shop.findOne({user: _id}).lean()
-    items = await Item.find({shop: shop._id, cat: catId, deleted: 0}).populate({path:'cat', options: {lean: true}}).lean()
+    shop = await Shop.findOne({school}).lean()
+
+    items = await Item.find(utils.filterNullKeys({shop: shop._id, cat}))
+        .populate({path:'cat', options: {lean: true}}).lean()
+
+    items = items.filter(item => item.deleted != 1)
     if (items) {
         ctx.body = {
             entry: items
+        }
+    } else {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+async function getItem(ctx) {
+    const {id} = ctx.query
+    let item, shop
+
+    item = await Item.findOne({_id: id}).populate({path:'cat', options: {lean: true}}).lean()
+    if (item) {
+        ctx.body = {
+            entry: item
         }
     } else {
         ctx.body = {
@@ -68,6 +87,7 @@ async function getItems(ctx) {
 export default {
     addItem,
     editItem,
+    getItem,
     getItems,
     removeItem
 }
