@@ -10,7 +10,7 @@ const port = process.env.port || 3000
 
 app.use(views(path.resolve(__dirname, '../views/prod'), {map: {html: 'ejs'}}))
 app.use(serve(path.resolve(__dirname, '../dist/client')))
-app.use(serve(path.resolve(__dirname, '../public')))
+app.use(serve(path.resolve(__dirname, '../../public')))
 app.use(clientRoute)
 app.use(router.routes())
 app.use(router.allowedMethods())
