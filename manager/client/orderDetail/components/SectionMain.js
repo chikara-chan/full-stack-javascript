@@ -12,6 +12,13 @@ class SectionMain extends Component {
         this.handleReject = this.handleReject.bind(this)
         this.handleReceive = this.handleReceive.bind(this)
         this.handleConfirmSend = this.handleConfirmSend.bind(this)
+        this.handleSet = this.handleSet.bind(this)
+    }
+
+    handleSet() {
+        const {order, actions} = this.props
+
+        actions.setOrder(order.id, this.refs.select.value)
     }
 
     handleReject() {
@@ -55,7 +62,21 @@ class SectionMain extends Component {
                     </div>
                     <div className={styles.title}>订单信息</div>
                     <div className={styles.buyer}>
-                        <p className={styles.receiver}>订单号: {order.id}<span className={`${styles.mobile}`}>订单状态: {switchStatus(order.status)}</span></p>
+                        <p className={styles.receiver}>订单号: {order.id}
+                            <span className={`${styles.mobile} ${styles.offset}`}>
+                                {'订单状态: '}
+                                <select ref="select" defaultValue={order.status}>
+                                    <option value="100">待接单</option>
+                                    <option value="101">待发货</option>
+                                    <option value="102">待收货</option>
+                                    <option value="103">待评价</option>
+                                    <option value="104">已完成</option>
+                                    <option value="200">已取消</option>
+                                    <option value="201">已拒单</option>
+                                </select>
+                                <a className={styles.link} onClick={this.handleSet}>变更</a>
+                            </span>
+                        </p>
                         <p className={styles.address}>下单时间: {formatDate(order.create)}<span className={`${styles.mobile}`}>支付状态: {switchPayType(order.payType)}</span></p>
                         <p className={styles.remark}>备注: {order.remark || '无'}</p>
                     </div>

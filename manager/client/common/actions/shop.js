@@ -1,6 +1,7 @@
 import {browserHistory} from 'react-router'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
+import schools from './schools'
 
 function updateShop(shop) {
     return {
@@ -30,8 +31,28 @@ function postShop() {
     }
 }
 
+function signupShop(data) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/shop/signupShop',
+            data
+        }).then(res => {
+            utils.ajax({
+                url: '/api/school/getSchools',
+                type: 'get',
+            }).then(res => {
+                dispatch({
+                    type: types.REPLACE_SCHOOLS,
+                    schools: res.entry
+                })
+            })
+        })
+    }
+}
+
 export default {
     updateShop,
     getShop,
-    postShop
+    postShop,
+    signupShop
 }

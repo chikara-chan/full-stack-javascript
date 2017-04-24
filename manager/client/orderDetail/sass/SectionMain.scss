@@ -50,8 +50,16 @@
         max-width: 600px;
         margin-bottom: 30px;
         .receiver {
+            position: relative;
             margin: 0;
+            .link {
+                position: absolute;
+                right:  -40px;
+                top: 5px;
+            }
             .mobile {
+                position: relative;
+                top: -5px;
                 float: right;
             }
         }

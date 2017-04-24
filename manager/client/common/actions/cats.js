@@ -17,9 +17,6 @@ function getCats() {
             type: 'get'
         }).then(res => {
             dispatch(replaceCats(res.entry))
-            if (res.entry[0]) {
-                items.getItems(res.entry[0].id)(dispatch)
-            }
         })
     }
 }

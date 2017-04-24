@@ -1,12 +1,20 @@
 .section-main {
     .form {
+        max-width: 400px;
+        background: #fff;
+        padding: 15px;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
         .card {
             background: #fff;
             margin-bottom: 25px;
             border-top: 1px solid #dbdbdb;
+            border-radius: 3px;
 
             .field {
                 border-bottom: 1px solid #dbdbdb;
+                border-left: 1px solid #dbdbdb;
+                border-right: 1px solid #dbdbdb;
 
                 .label {
                     display: flex;
@@ -71,7 +79,7 @@
         :local {
             .modal {
                 display: table !important;
-                width: 50% !important;
+                width: 200px !important;
                 margin-left: -25% !important;
 
                 .menu {

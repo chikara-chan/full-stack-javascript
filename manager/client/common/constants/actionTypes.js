@@ -10,8 +10,14 @@ const alert = {
     user = {
         UPDATE_USER: 'UPDATE_USER'
     },
+    users = {
+        REPLACE_USERS: 'REPLACE_USERS'
+    },
     shop = {
         UPDATE_SHOP: 'UPDATE_SHOP'
+    },
+    schools = {
+        REPLACE_SCHOOLS: 'REPLACE_SCHOOLS'
     },
     item = {
         UPDATE_ITEM: 'UPDATE_ITEM',
@@ -38,6 +44,8 @@ export default {
     ...navbar,
     ...actionbar,
     ...user,
+    ...schools,
+    ...users,
     ...shop,
     ...item,
     ...items,

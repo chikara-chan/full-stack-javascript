@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {getURLParams} from '../../shared/utils'
 import SectionMain from '../components/SectionMain'
 import styles from '../sass/App'
 
@@ -11,14 +12,7 @@ class App extends Component {
         const {actions} = this.props
 
         actions.getCats()
-    }
-
-    componentWillUnmount() {
-        const {actions} = this.props
-
-        actions.updateNavbar({
-            show: true
-        })
+        actions.getItem(getURLParams().id)
     }
 
     render() {
@@ -26,6 +20,7 @@ class App extends Component {
 
         return (
             <div className={styles.app}>
+                <h1 className={styles.title}>商品管理 / 商品编辑</h1>
                 <SectionMain cats={cats} modal={modal} item={item} actions={actions}></SectionMain>
             </div>
         )

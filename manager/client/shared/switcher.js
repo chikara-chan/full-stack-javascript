@@ -7,12 +7,25 @@ function switchShopType(shopType) {
     }
 }
 
-function switchGender(shopType) {
-    switch (shopType) {
+function switchGender(gender) {
+    switch (gender) {
         case 0:
             return '男'
         case 1:
             return '女'
+        default:
+            return ''
+    }
+}
+
+function switchLevel(level) {
+    switch (level) {
+        case 0:
+            return '买家'
+        case 1:
+            return '卖家'
+        case 2:
+            return '客服'
         default:
             return ''
     }
@@ -54,5 +67,6 @@ export default {
     switchShopType,
     switchGender,
     switchStatus,
-    switchPayType
+    switchPayType,
+    switchLevel
 }

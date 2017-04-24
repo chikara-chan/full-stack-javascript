@@ -1,62 +1,72 @@
 import React, {Component} from 'react'
-import {browserHistory} from 'react-router'
-import {Menu} from '@blueprintjs/core/dist/components/menu/menu'
-import {MenuItem} from '@blueprintjs/core/dist/components/menu/menuItem'
+import {browserHistory, Link} from 'react-router'
+import {Table} from 'antd'
+import utils from '../../shared/date-fns'
 import styles from '../sass/SectionMain'
 import Item from './Item'
 
 class SectionMain extends Component {
     constructor() {
         super()
-
-        this.handleClickAddItem = this.handleClickAddItem.bind(this)
-        this.handleClickItem = this.handleClickItem.bind(this)
-        this.state = {
-            activeKey: 0
-        }
+        this.columns = [
+          {
+            title: '图片',
+            dataIndex: 'pic',
+            render: pic => <img width="40" height="40" src={pic} />
+          },
+          {
+            title: '商品ID',
+            dataIndex: 'id'
+          }, {
+            title: '商品名称',
+            dataIndex: 'itemName'
+          }, {
+            title: '价格',
+            dataIndex: 'price'
+          }, {
+            title: '规格',
+            dataIndex: 'property'
+          }, {
+            title: '单位',
+            dataIndex: 'unit'
+          }, {
+            title: '库存',
+            dataIndex: 'quantity'
+          }, {
+            title: '创建时间',
+            dataIndex: 'create',
+            render: timestamp => utils.formatDate(timestamp)
+          },, {
+            title: '更新时间',
+            dataIndex: 'update',
+            render: timestamp => utils.formatDate(timestamp)
+          }, {
+            title: '操作',
+            render: item => <span>
+                    <Link to={`/editItem?id=${item.id}`}>编辑</Link>
+                    {'  '}
+                    <a style={{color: '#f04134'}} onClick={() => this.handleRemove(item.id)}>删除</a>
+                </span>
+          }
+        ]
     }
 
-    handleClickAddItem() {
-        browserHistory.push('/addItem')
-    }
+    handleRemove(id) {
+        const {actions, handleUpdate} = this.props
 
-    handleClickItem(e, eventKey, catId) {
-        const {actions} = this.props
-
-        this.setState({ activeKey: eventKey })
-        actions.getItems(catId)
+        actions.postRemoveItem(id)
+        handleUpdate()
     }
 
     render() {
-        const {activeKey} = this.state,
-            {cats, items, actions} = this.props
+        const {items} = this.props
 
         return (
             <section className={styles.sectionMain}>
-                <div className={styles.container}>
-                    <Menu className={styles.menu}>
-                        {cats.map((cat, index) =>
-                            <MenuItem className={`${styles.item} ${activeKey === index ? styles.active : ''}`}
-                                key={index}
-                                onClick={(e) => {this.handleClickItem(e, index, cat.id)}}
-                                text={cat.catName} />
-                        )}
-                    </Menu>
-                    <div className={styles.panel}>
-                        {cats[activeKey] &&
-                            <div className={styles.header}>
-                                {cats[activeKey].catName}
-                            </div>
-                        }
-                        {items.map(item =>
-                            <Item key={item.id} actions={actions} item={item}/>
-                        )}
-                    </div>
-                </div>
-                <a className={styles.fiexedBtn} onClick={this.handleClickAddItem}>
-                    <i className={`iconfont icon-add ${styles.icon}`}></i>
-                    <p className={styles.text}>添加商品</p>
-                </a>
+                <Table className={styles.table}
+                  columns={this.columns}
+                  rowKey={item => item.id}
+                  dataSource={items}/>
             </section>
         )
     }

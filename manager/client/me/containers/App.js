@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
 import SectionMain from '../components/SectionMain'
+import Form from '../components/Form'
 import styles from '../sass/App'
 
 class App extends Component {
@@ -9,11 +10,13 @@ class App extends Component {
     }
 
     render() {
-        const {actions, shop, user} = this.props
+        const {actions, users} = this.props
 
         return (
             <div className={styles.app}>
-                <SectionMain actions={actions} shop={shop} user={user}></SectionMain>
+                <h1 className={styles.title}>用户管理</h1>
+                <Form actions={actions}/>
+                <SectionMain actions={actions} users={users}></SectionMain>
             </div>
         )
     }

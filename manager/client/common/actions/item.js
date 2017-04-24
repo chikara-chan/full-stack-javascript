@@ -33,18 +33,32 @@ function postEditItem() {
             url: '/api/item/editItem',
             data: getState().item
         }).then(res => {
-            browserHistory.goBack()
         })
     }
 }
 
-function postRemoveItem() {
+function postRemoveItem(id) {
     return (dispatch, getState) => {
         utils.ajax({
             url: '/api/item/removeItem',
-            data: getState().item
+            data: {
+                id
+            }
         }).then(res => {
-            browserHistory.goBack()
+        })
+    }
+}
+
+function getItem(id) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/item/getItem',
+            type: 'get',
+            data: {
+                id
+            }
+        }).then(res => {
+            dispatch(updateItem(res.entry))
         })
     }
 }
@@ -69,6 +83,7 @@ function postItemPic(pic) {
 
 export default {
     updateItem,
+    getItem,
     replaceItem,
     postAddItem,
     postRemoveItem,

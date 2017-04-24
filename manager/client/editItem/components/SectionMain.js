@@ -12,7 +12,6 @@ class SectionMain extends Component {
         super()
 
         this.handleClickSubmitBtn = this.handleClickSubmitBtn.bind(this)
-        this.handleClickDeleteBtn = this.handleClickDeleteBtn.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleChangePic = this.handleChangePic.bind(this)
         this.handleClickItem = this.handleClickItem.bind(this)
@@ -25,12 +24,6 @@ class SectionMain extends Component {
 
         actions.postEditItem()
         e.preventDefault()
-    }
-
-    handleClickDeleteBtn(e) {
-        const {actions} = this.props
-
-        actions.postRemoveItem()
     }
 
     handleChange(e) {
@@ -162,11 +155,6 @@ class SectionMain extends Component {
                     <div className={styles.card}>
                         <div className={styles.field}>
                             <input type="submit" value="保存" className={styles.submitBtn} onClick={this.handleClickSubmitBtn}/>
-                        </div>
-                    </div>
-                    <div className={styles.card}>
-                        <div className={styles.field}>
-                            <input type="button" value="删除" className={styles.deleteBtn} onClick={this.handleClickDeleteBtn}/>
                         </div>
                     </div>
                 </form>

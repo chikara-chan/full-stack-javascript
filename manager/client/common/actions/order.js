@@ -1,4 +1,5 @@
 import {browserHistory} from 'react-router'
+import {message} from 'antd'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
 
@@ -62,6 +63,19 @@ function sendOrder(id) {
     }
 }
 
+function setOrder(id, status) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/order/setOrder',
+            data: {
+                id,
+                status
+            }
+        }).then(res => {
+        })
+    }
+}
+
 function getOrderWithoutRedirect() {
     return (dispatch, getState) => {
         utils.ajax({
@@ -83,5 +97,6 @@ export default {
     getOrderWithoutRedirect,
     rejectOrder,
     receiveOrder,
-    sendOrder
+    sendOrder,
+    setOrder
 }

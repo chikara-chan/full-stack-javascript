@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import styles from '../sass/SectionMain'
-import Item from './Item'
 import utils from '../../shared/date-fns'
 import {switchStatus} from '../../shared/switcher'
 import {Table} from 'antd'

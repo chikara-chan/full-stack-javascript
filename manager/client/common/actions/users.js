@@ -2,26 +2,26 @@ import {browserHistory} from 'react-router'
 import types from '../constants/actionTypes'
 import utils from '../../shared/utils'
 
-function replaceItems(items) {
+function updateUsers(users) {
     return {
-        type: types.REPLACE_ITEMS,
-        items
+        type: types.REPLACE_USERS,
+        users
     }
 }
 
-function getItems(data) {
+function getUsers(data) {
     return (dispatch, getState) => {
         utils.ajax({
-            url: '/api/item/getItems',
+            url: '/api/user/getUsers',
             type: 'get',
             data
         }).then(res => {
-            dispatch(replaceItems(res.entry))
+            dispatch(updateUsers(res.entry))
         })
     }
 }
 
 export default {
-    replaceItems,
-    getItems
+    updateUsers,
+    getUsers
 }
