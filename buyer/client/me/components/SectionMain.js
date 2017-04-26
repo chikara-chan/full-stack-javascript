@@ -79,6 +79,7 @@ class SectionMain extends Component {
         const {actions} = this.props
 
         actions.postLogout()
+        actions.initUser()
     }
 
     handleClickItem(e, gender) {

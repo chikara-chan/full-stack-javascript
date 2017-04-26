@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
+import Banner from '../components/Banner'
 import SectionMain from '../components/SectionMain'
 import Actionbar from '../../shared/components/Actionbar'
 import styles from '../sass/App'
@@ -20,6 +21,13 @@ class App extends Component {
             action: '',
             back: false
         })
+        actions.getRecommendItems()
+    }
+
+    componentWillUnmount() {
+        const {actions} = this.props
+
+        actions.replaceItems([])
     }
 
     handleClickTitle() {
@@ -27,12 +35,13 @@ class App extends Component {
     }
 
     render() {
-        const {actions, actionbar} = this.props
+        const {actions, actionbar, items, cart} = this.props
 
         return (
             <div className={styles.app}>
                 <Actionbar title={actionbar.title} back={actionbar.back} action={actionbar.action} handleClickTitle={this.handleClickTitle}/>
-                <SectionMain actions={actions}></SectionMain>
+                <Banner actions={actions}></Banner>
+                <SectionMain items={items} actions={actions} cart={cart}></SectionMain>
             </div>
         )
     }

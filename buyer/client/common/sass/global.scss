@@ -25,5 +25,14 @@
         .root {
             font-size: 0.24rem;
         }
+        label {
+            font-size: 0.24rem;
+        }
+    }
+    a {
+        color: #333;
+        &:hover {
+            color: #333;
+        }
     }
 }

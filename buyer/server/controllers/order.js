@@ -1,5 +1,6 @@
 import Order from '../models/order'
 import Shop from '../models/shop'
+import Item from '../models/item'
 import utils from '../lib/utils'
 
 async function submitOrder(ctx) {
@@ -106,9 +107,30 @@ async function cancelOrder(ctx) {
 
 async function receiveOrder(ctx) {
     const {id} = ctx.req.body
-    let ret
+    let ret, order, items
 
     ret = await Order.update({_id: id}, {status: 104})
+    order = await Order.findOne({_id: id})
+        .populate({path:'item', options: {lean: true}})
+        .lean()
+        console.log(order)
+    for (let i = 0; i < order.item.length; i++) {
+        ret = await Item.update({_id: order.item[i]._id}, { $inc: { quantity: -1 }})
+    }
+
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+async function refundOrder(ctx) {
+    const {id} = ctx.req.body
+    let ret
+
+    ret = await Order.update({_id: id}, {status: 105})
+
     if (!ret.ok) {
         ctx.body = {
             status: false
@@ -120,6 +142,7 @@ export default {
     submitOrder,
     getOrders,
     getOrder,
+    refundOrder,
     cancelOrder,
     receiveOrder
 }

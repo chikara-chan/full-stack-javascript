@@ -11,6 +11,7 @@ class SectionMain extends Component {
 
         this.handleCancel = this.handleCancel.bind(this)
         this.handleReceive = this.handleReceive.bind(this)
+        this.handleRefund = this.handleRefund.bind(this)
     }
 
     handleCancel() {
@@ -23,6 +24,12 @@ class SectionMain extends Component {
         const {order, actions} = this.props
 
         actions.receiveOrder(order.id)
+    }
+
+    handleRefund() {
+        const {order, actions} = this.props
+
+        actions.refundOrder(order.id)
     }
 
     componentDidMount() {
@@ -99,6 +106,11 @@ class SectionMain extends Component {
                 {order.status === 102 &&
                     <div className={styles.field}>
                         <input className={styles.logout} onClick={this.handleReceive} type="button" value="确认收货"/>
+                    </div>
+                }
+                {order.status === 103 || order.status === 104 &&
+                    <div className={styles.field}>
+                        <input className={styles.logout} onClick={this.handleRefund} type="button" value="申请退款"/>
                     </div>
                 }
             </section>

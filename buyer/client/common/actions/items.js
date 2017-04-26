@@ -32,7 +32,29 @@ function getItems(catId) {
     }
 }
 
+function getRecommendItems() {
+    return (dispatch, getState) => {
+        const schoolId = localStorage.getItem('schoolId')
+
+        if (!schoolId) {
+            browserHistory.push('/selectSchool')
+
+            return
+        }
+        utils.ajax({
+            url: '/api/item/getRecommendItems',
+            type: 'get',
+            data: {
+                schoolId
+            }
+        }).then(res => {
+            dispatch(replaceItems(res.entry))
+        })
+    }
+}
+
 export default {
     replaceItems,
-    getItems
+    getItems,
+    getRecommendItems
 }

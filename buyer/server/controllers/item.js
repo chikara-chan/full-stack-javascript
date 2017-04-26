@@ -52,7 +52,30 @@ async function getItems(ctx) {
     let items, shop
 
     shop = await Shop.findOne({school: schoolId}).lean()
-    items = await Item.find({shop: shop._id, cat: catId, deleted: 0}).populate({path:'cat', options: {lean: true}}).lean()
+    items = await Item.find({shop: shop._id, cat: catId, deleted: 0, quantity: {$gt: 0}})
+        .populate({path:'cat', options: {lean: true}})
+        .lean()
+    if (items) {
+        ctx.body = {
+            entry: items
+        }
+    } else {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+async function getRecommendItems(ctx) {
+    const {schoolId} = ctx.query
+    let items, shop
+
+    shop = await Shop.findOne({school: schoolId}).lean()
+    items = await Item.find({shop: shop._id, deleted: 0})
+        .populate({path:'cat', options: {lean: true}})
+        .lean()
+        .sort({'update':-1})
+        .limit(10)
     if (items) {
         ctx.body = {
             entry: items
@@ -68,5 +91,6 @@ export default {
     addItem,
     editItem,
     getItems,
-    removeItem
+    removeItem,
+    getRecommendItems
 }

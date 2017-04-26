@@ -24,7 +24,7 @@ class SectionMain extends Component {
     componentDidMount() {
         const {actions} = this.props
 
-        actions.getOrders([100, 101, 102])
+        actions.getOrders([100, 101, 102, 105])
     }
 
     render() {
@@ -35,10 +35,10 @@ class SectionMain extends Component {
             <section className={styles.sectionMain}>
                 <Menu className={styles.menu}>
                     <MenuItem className={`${styles.item} ${activeKey === 0 ? styles.active : ''}`}
-                        onClick={(e) => {this.handleClickItem(e, 0, [100, 101, 102])}}
+                        onClick={(e) => {this.handleClickItem(e, 0, [100, 101, 102, 105])}}
                         text="未完成" />
                     <MenuItem className={`${styles.item} ${activeKey === 1 ? styles.active : ''}`}
-                        onClick={(e) => {this.handleClickItem(e, 1, [103, 104])}}
+                        onClick={(e) => {this.handleClickItem(e, 1, [103, 104, 202])}}
                         text="已完成" />
                     <MenuItem className={`${styles.item} ${activeKey === 2 ? styles.active : ''}`}
                         onClick={(e) => {this.handleClickItem(e, 2, [200, 201])}}

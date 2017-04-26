@@ -50,6 +50,19 @@ function receiveOrder(id) {
     }
 }
 
+function refundOrder(id) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/order/refundOrder',
+            data: {
+                id
+            }
+        }).then(res => {
+            browserHistory.goBack()
+        })
+    }
+}
+
 function getOrderWithoutRedirect() {
     return (dispatch, getState) => {
         utils.ajax({
@@ -70,5 +83,6 @@ export default {
     getOrder,
     getOrderWithoutRedirect,
     cancelOrder,
+    refundOrder,
     receiveOrder
 }

@@ -30,10 +30,14 @@ function switchStatus(status) {
             return '待评价'
         case 104:
             return '已完成'
+        case 105:
+            return '退款中'
         case 200:
             return '已取消'
         case 201:
             return '已拒单'
+        case 202:
+            return '退款成功'
         default:
             return ''
     }

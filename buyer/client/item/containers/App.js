@@ -19,6 +19,12 @@ class App extends Component {
         actions.getCats()
     }
 
+    componentWillUnmount() {
+        const {actions} = this.props
+
+        actions.replaceItems([])
+    }
+
     render() {
         const {actions, actionbar, cats, items, cart} = this.props
 

@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import Main from '../components/Main'
 import actions from '../actions'
 import styles from '../sass/Common'
+import 'antd/dist/antd.min.css'
 import '../sass/global'
 import '../sass/blueprint'
 

@@ -9,6 +9,12 @@ function updateUser(user) {
     }
 }
 
+function initUser(user) {
+    return {
+        type: 'INIT'
+    }
+}
+
 function postLogin() {
     return (dispatch, getState) => {
         const {username, password} = getState().user
@@ -97,6 +103,7 @@ export default {
     postSignup,
     postLogout,
     postUser,
+    initUser,
     postUserAvatar,
     getUser
 }
