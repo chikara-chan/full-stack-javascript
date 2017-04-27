@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import Shop from '../models/shop'
 import User from '../models/user'
 import School from '../models/school'
@@ -38,11 +39,13 @@ async function updateShopInfo(ctx) {
 
 async function signupShop(ctx) {
     const values = ctx.req.body
-    let shop, school, user
+    let shop, school, user,
+        md5 = crypto.createHash('md5'),
+        cryptoPassword = md5.update(values.password).digest('hex')
 
     user = await User.create({
         username: values.username,
-        password: values.password,
+        password: cryptoPassword,
         level: 1
     })
     school = await School.create({
