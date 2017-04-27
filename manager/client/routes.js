@@ -66,6 +66,13 @@ const routes = {
                 }, 'shop')
             }
         }, {
+            path: 'stat',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./stat/containers/App'))
+                }, 'stat')
+            }
+        }, {
             path: 'login',
             getComponent(nextState, callback) {
                 require.ensure([], require => {

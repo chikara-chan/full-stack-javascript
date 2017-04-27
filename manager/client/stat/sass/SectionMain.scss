@@ -1,0 +1,14 @@
+.section-main {
+    .title {
+        font-size: 24px;
+        font-weight: 300;
+        padding-bottom: 30px;
+    }
+    .section {
+        padding: 20px;
+        &:nth-child(even) {
+            background: #fff;
+        }
+        border-bottom: 1px dashed #dbdbdb;
+    }
+}

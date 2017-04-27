@@ -29,6 +29,9 @@ const alert = {
     cats = {
         REPLACE_CATS: 'REPLACE_CATS'
     },
+    stats = {
+        REPLACE_STATS: 'REPLACE_STATS'
+    },
     modal = {
         UPDATE_MODAL: 'UPDATE_MODAL'
     },
@@ -52,5 +55,6 @@ export default {
     ...cats,
     ...modal,
     ...order,
+    ...stats,
     ...orders
 }

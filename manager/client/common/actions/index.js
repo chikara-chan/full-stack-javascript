@@ -11,6 +11,7 @@ import modal from './modal'
 import order from './order'
 import orders from './orders'
 import schools from './schools'
+import stats from './stats'
 
 export default {
     ...alert,
@@ -25,5 +26,6 @@ export default {
     ...modal,
     ...order,
     ...orders,
+    ...stats,
     ...schools
 }

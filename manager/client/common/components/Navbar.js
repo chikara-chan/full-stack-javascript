@@ -45,7 +45,13 @@ class Navbar extends Component {
                 <Menu.Item className={`${styles.item} ${isActive('shop') ? styles.active : ''}`}
                   key="3">
                   <Link to="/shop" className={styles.link}>
-                    <Icon type="shop"/>学校开通
+                    <Icon type="shop"/>地标管理
+                  </Link>
+                </Menu.Item>
+                <Menu.Item className={`${styles.item} ${isActive('stat') ? styles.active : ''}`}
+                  key="4">
+                  <Link to="/stat" className={styles.link}>
+                    <Icon type="line-chart"/>天机平台
                   </Link>
                 </Menu.Item>
               </Menu>

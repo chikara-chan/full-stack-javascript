@@ -12,6 +12,7 @@ import modal from './modal'
 import order from './order'
 import orders from './orders'
 import schools from './schools'
+import stats from './stats'
 
 const rootReducer = combineReducers({
     alert,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     order,
     orders,
     schools,
+    stats,
     modal
 })
 

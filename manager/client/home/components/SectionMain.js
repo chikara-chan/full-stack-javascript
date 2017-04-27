@@ -39,9 +39,9 @@ class SectionMain extends Component {
                   <Col span="8" className={styles.col}>
                     <Card className={styles.card} onClick={() => this.handleClickItem('/shop')}>
                         <div span="8" className={styles.subCol} style={{color: '#fff', background: '#00c0ef'}}>
-                            <Icon type="shop" />
+                            <Icon type="environment-o" />
                         </div>
-                        <div span="16" className={styles.subCol}>店铺管理</div>
+                        <div span="16" className={styles.subCol}>地标管理</div>
                     </Card>
                   </Col>
                 </Row>
@@ -52,6 +52,14 @@ class SectionMain extends Component {
                             <Icon type="appstore-o"/>
                         </div>
                         <div span="16" className={styles.subCol}>商品管理</div>
+                    </Card>
+                  </Col>
+                  <Col span="8" className={styles.col}>
+                    <Card className={styles.card} onClick={() => this.handleClickItem('/stat')}>
+                        <div span="8" className={styles.subCol} style={{color: '#fff', background: '#6556E2'}}>
+                            <Icon type="line-chart"/>
+                        </div>
+                        <div span="16" className={styles.subCol}>天机平台</div>
                     </Card>
                   </Col>
                 </Row>
