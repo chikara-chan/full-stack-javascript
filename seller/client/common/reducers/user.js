@@ -17,6 +17,8 @@ function user(state = initialState, action) {
                 ...state,
                 ...action.user
             }
+        case 'INIT':
+            return initialState
         default:
             return state
     }

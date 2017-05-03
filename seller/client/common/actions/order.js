@@ -77,6 +77,31 @@ function getOrderWithoutRedirect() {
     }
 }
 
+function confirmOrderRefund(id) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/order/confirmOrderRefund',
+            data: {
+                id
+            }
+        }).then(res => {
+            browserHistory.goBack()
+        })
+    }
+}
+
+function rejectOrderRefund(id) {
+    return (dispatch, getState) => {
+        utils.ajax({
+            url: '/api/order/rejectOrderRefund',
+            data: {
+                id
+            }
+        }).then(res => {
+            browserHistory.goBack()
+        })
+    }
+}
 
 export default {
     replaceOrder,
@@ -84,5 +109,7 @@ export default {
     getOrderWithoutRedirect,
     rejectOrder,
     receiveOrder,
-    sendOrder
+    sendOrder,
+    confirmOrderRefund,
+    rejectOrderRefund
 }

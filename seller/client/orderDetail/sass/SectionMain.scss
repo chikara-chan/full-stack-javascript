@@ -108,7 +108,10 @@
         border-top: 1px solid #dbdbdb;
         border-bottom: 1px solid #dbdbdb;
         background: #fff;
-        padding: 0.1rem 0.3rem;
+        padding: 0.3rem 0.3rem;
+        :global(p:first-child) {
+            margin-bottom: 0.2rem
+        }
     }
 
     .field {

@@ -35,7 +35,7 @@ async function getUserInfo(ctx) {
 
     user = await User.findOne({_id}).lean()
     utils.deleteKeys(user, 'username password')
-    user.identity = user.identity.toString()
+    user.identity = user.identity?user.identity.toString():null
     if (user) {
         ctx.body = {
             entry: user

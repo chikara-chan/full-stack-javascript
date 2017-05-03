@@ -15,7 +15,7 @@ async function upload(ctx) {
         month = date.getMonth() + 1
         day = date.getDate()
         ext = file.name.slice(file.name.lastIndexOf('.'))
-        dest = path.resolve(__dirname, `../../public/assets/${year}/${month}/${day}/${new Types.ObjectId()}${ext}`)
+        dest = path.resolve(__dirname, `../../../public/assets/${year}/${month}/${day}/${new Types.ObjectId()}${ext}`)
         mkdirp.sync(path.dirname(dest))
         fs.writeFileSync(dest, data)
         fs.unlink(file.path)

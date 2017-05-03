@@ -9,6 +9,7 @@ import cats from './cats'
 import modal from './modal'
 import order from './order'
 import orders from './orders'
+import stats from './stats'
 
 export default {
     ...alert,
@@ -21,5 +22,6 @@ export default {
     ...cats,
     ...modal,
     ...order,
+    ...stats,
     ...orders
 }

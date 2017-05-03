@@ -12,6 +12,20 @@ class SectionMain extends Component {
         this.handleReject = this.handleReject.bind(this)
         this.handleReceive = this.handleReceive.bind(this)
         this.handleConfirmSend = this.handleConfirmSend.bind(this)
+        this.handleConfirmRefund = this.handleConfirmRefund.bind(this)
+        this.handleRejectRefund = this.handleRejectRefund.bind(this)
+    }
+
+    handleConfirmRefund() {
+        const {order, actions} = this.props
+
+        actions.confirmOrderRefund(order.id)
+    }
+
+    handleRejectRefund() {
+        const {order, actions} = this.props
+
+        actions.rejectOrderRefund(order.id)
     }
 
     handleReject() {
@@ -107,6 +121,12 @@ class SectionMain extends Component {
                 {order.status === 101 &&
                     <div className={styles.field}>
                         <input className={`${styles.btn}`} onClick={this.handleConfirmSend} type="button" value="确认发货"/>
+                    </div>
+                }
+                {order.status === 105 &&
+                    <div className={styles.field}>
+                        <input className={`${styles.btn} ${styles.primary}`} onClick={this.handleConfirmRefund} type="button" value="同意退款"/>
+                        <input className={`${styles.btn}`} onClick={this.handleRejectRefund} type="button" value="拒绝退款"/>
                     </div>
                 }
             </section>

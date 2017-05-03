@@ -41,6 +41,21 @@ class SectionMain extends Component {
             this.setState({
                 activeKey: 2
             })
+        } else if (activeKey === 3) {
+            actions.getOrders([103, 104])
+            this.setState({
+                activeKey: 3
+            })
+        } else if (activeKey === 4) {
+            actions.getOrders([105])
+            this.setState({
+                activeKey: 4
+            })
+        } else if (activeKey === 5) {
+            actions.getOrders([200, 201, 202])
+            this.setState({
+                activeKey: 5
+            })
         } else {
             actions.getOrders([100])
         }
@@ -66,7 +81,10 @@ class SectionMain extends Component {
                         onClick={(e) => {this.handleClickItem(e, 3, [103, 104])}}
                         text="已完成" />
                     <MenuItem className={`${styles.item} ${activeKey === 4 ? styles.active : ''}`}
-                        onClick={(e) => {this.handleClickItem(e, 4, [200, 201])}}
+                        onClick={(e) => {this.handleClickItem(e, 4, [105])}}
+                        text="退款中" />
+                    <MenuItem className={`${styles.item} ${activeKey === 5 ? styles.active : ''}`}
+                        onClick={(e) => {this.handleClickItem(e, 5, [200, 201, 202])}}
                         text="已取消" />
                 </Menu>
                 <div className={styles.panel}>

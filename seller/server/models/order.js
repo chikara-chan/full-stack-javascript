@@ -9,7 +9,7 @@ OrderSchema = new mongoose.Schema({
     _id: {type: Schema.Types.ObjectId, default: Types.ObjectId},
     amount: {type: Number},
     count: {type: Number},
-    status: {type: Number}, // 100: 待接单 101: 待发货 102：待收货 103: 待评价 104: 已完成  200: 已取消 201: 已拒单
+    status: {type: Number}, // 100: 待接单 101: 待发货 102：待收货 103: 待评价 104: 已完成 105: 退款中  200: 已取消 201: 已拒单 203: 退款成功
     remark: {type: String},
     comment: {type: String},
     orderType: {type: Number, default: 0}, // 0: 普通订单

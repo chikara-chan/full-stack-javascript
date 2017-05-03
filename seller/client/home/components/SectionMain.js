@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
+import {Row, Col} from 'antd'
 import {Menu} from '@blueprintjs/core/dist/components/menu/menu'
 import {MenuItem} from '@blueprintjs/core/dist/components/menu/menuItem'
 import styles from '../sass/SectionMain'
@@ -21,7 +22,7 @@ class SectionMain extends Component {
     }
 
     render() {
-        const {shop} = this.props
+        const {shop, stats} = this.props
 
         return (
             <section className={styles.sectionMain}>
@@ -46,6 +47,59 @@ class SectionMain extends Component {
                         </a>
                         </div>
                 </div>
+                {!!stats.length && <div>
+                <div className={styles.card}>
+                    <h1 className={styles.title}>每日数据统计</h1>
+                    <Row className={styles.row}>
+                        <Col span="8">
+                            <div className={styles.top}>{stats[0].total}</div>
+                            <div className={styles.bottom}>今日总订单</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[0].amount.toFixed(2)}</div>
+                            <div className={styles.bottom}>今日交易额</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[0].sales}</div>
+                            <div className={styles.bottom}>今日商品销量</div>
+                        </Col>
+                    </Row>
+                </div>
+                <div className={styles.card}>
+                    <h1 className={styles.title}>每周数据统计</h1>
+                    <Row className={styles.row}>
+                        <Col span="8">
+                            <div className={styles.top}>{stats[1].total}</div>
+                            <div className={styles.bottom}>本周总订单</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[1].amount.toFixed(2)}</div>
+                            <div className={styles.bottom}>本周交易额</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[1].sales}</div>
+                            <div className={styles.bottom}>本周商品销量</div>
+                        </Col>
+                    </Row>
+                </div>
+                <div className={styles.card}>
+                    <h1 className={styles.title}>每月数据统计</h1>
+                    <Row className={styles.row}>
+                        <Col span="8">
+                            <div className={styles.top}>{stats[2].total}</div>
+                            <div className={styles.bottom}>本月总订单</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[2].amount.toFixed(2)}</div>
+                            <div className={styles.bottom}>本月交易额</div>
+                        </Col>
+                        <Col span="8">
+                            <div className={styles.top}>￥{stats[2].sales}</div>
+                            <div className={styles.bottom}>本月商品销量</div>
+                        </Col>
+                    </Row>
+                </div>
+                </div>}
             </section>
         )
     }

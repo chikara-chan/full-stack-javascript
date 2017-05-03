@@ -10,6 +10,9 @@ const alert = {
     user = {
         UPDATE_USER: 'UPDATE_USER'
     },
+    stats = {
+        REPLACE_STATS: 'REPLACE_STATS'
+    },
     shop = {
         UPDATE_SHOP: 'UPDATE_SHOP'
     },
@@ -44,5 +47,6 @@ export default {
     ...cats,
     ...modal,
     ...order,
+    ...stats,
     ...orders
 }

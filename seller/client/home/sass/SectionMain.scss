@@ -2,9 +2,11 @@
     .header {
         background: #428bca;
         color: #fff;
+        margin-bottom: 0.3rem;
         .action {
             float: right;
             padding: 0.2rem 0.3rem;
+            color: #fff;
 
             .icon {
                 display: block;
@@ -42,8 +44,10 @@
                 display: block;
                 width: 2.5rem;
                 padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
                 text-decoration: none;
                 text-align: center;
+                color: #fff;
 
                 .icon {
                     font-size: 0.3rem;
@@ -52,6 +56,29 @@
                 .title {
                     margin-top: 0.1rem;
                 }
+            }
+        }
+    }
+    .card {
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        margin-bottom: 0.3rem;
+        .title {
+            border-bottom: 1px solid #dbdbdb;
+            padding: 0.3rem;
+            font-size: 0.28rem;
+            font-weight: 400;
+        }
+        .row {
+            text-align: center;
+            .top {
+                color: #00924c;
+                padding: 0.3rem 0 0.2rem 0;
+            }
+            .bottom {
+                padding-bottom: 0.3rem;
+
             }
         }
     }

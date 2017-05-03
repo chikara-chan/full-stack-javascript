@@ -10,6 +10,7 @@ import cats from './cats'
 import modal from './modal'
 import order from './order'
 import orders from './orders'
+import stats from './stats'
 
 const rootReducer = combineReducers({
     alert,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     cats,
     order,
     orders,
+    stats,
     modal
 })
 

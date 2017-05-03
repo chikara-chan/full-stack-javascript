@@ -88,10 +88,36 @@ async function sendOrder(ctx) {
     }
 }
 
+async function confirmOrderRefund(ctx) {
+    const {id} = ctx.req.body
+    let ret
+
+    ret = await Order.update({_id: id}, {status: 202})
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
+async function rejectOrderRefund(ctx) {
+    const {id} = ctx.req.body
+    let ret
+
+    ret = await Order.update({_id: id}, {status: 104})
+    if (!ret.ok) {
+        ctx.body = {
+            status: false
+        }
+    }
+}
+
 export default {
     getOrders,
     getOrder,
     rejectOrder,
     receiveOrder,
-    sendOrder
+    sendOrder,
+    confirmOrderRefund,
+    rejectOrderRefund
 }
