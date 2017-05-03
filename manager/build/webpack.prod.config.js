@@ -76,8 +76,7 @@ clientConfig = {
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)}),
         new HtmlWebpackPlugin({
             filename: '../../views/prod/index.html',
-            template: './views/tpl/index.tpl.html',
-            chunksSortMode: 'none'
+            template: './views/tpl/index.tpl.html'
         }),
         new ExtractTextPlugin('[name].[contenthash:8].css', {allChunks: true})
     ]

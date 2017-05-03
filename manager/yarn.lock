@@ -2123,6 +2123,14 @@ function-bind@^1.0.2, function-bind@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
 
+g2:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/g2/-/g2-2.3.0.tgz#e433b48003e9e925d80d39be9b3142ed5c06b78e"
+
+g2-react:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/g2-react/-/g2-react-1.2.0.tgz#edc97b63e00f0103dcc7049bfd7b19872bb0231a"
+
 gauge@~2.7.1:
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.3.tgz#1c23855f962f17b3ad3d0dc7443f304542edfe09"

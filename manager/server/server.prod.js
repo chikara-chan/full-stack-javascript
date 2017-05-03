@@ -6,7 +6,7 @@ import app from './app'
 import router from './routes'
 import clientRoute from './middlewares/clientRoute'
 
-const port = process.env.port || 3001
+const port = process.env.port || 3002
 
 app.use(views(path.resolve(__dirname, '../views/prod'), {map: {html: 'ejs'}}))
 app.use(serve(path.resolve(__dirname, '../dist/client')))
