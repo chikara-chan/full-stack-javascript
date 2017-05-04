@@ -3,7 +3,7 @@ Good developers who are familiar with the entire stack know how to make life eas
 
 # What's included
 
-## buyer
+## Buyer
 
 Platform for buyer
 
@@ -19,7 +19,7 @@ Platform for buyer
 ![](http://upload-images.jianshu.io/upload_images/4145295-a5b0a6353cc7c88f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
 
-## seller
+## Seller
 
 Platform for seller
 
@@ -31,7 +31,7 @@ Platform for seller
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-68b4c6721b4abf43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
-## manager
+## Manager
 
 Platform for customer service
 
