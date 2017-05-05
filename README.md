@@ -33,7 +33,7 @@ Platform for seller
 
 ## Manager
 
-Platform for customer service
+Platform for manager
 
 # Author
 
