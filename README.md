@@ -9,6 +9,7 @@ Platform for buyer
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-3498c4bf1ab39544.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
+![](http://upload-images.jianshu.io/upload_images/4145295-0f80b6b72c757ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-39efecd866e85536.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
@@ -24,6 +25,8 @@ Platform for buyer
 Platform for seller
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-dee0a4545a219bc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-4c799b743db3ec60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-e5e222de4e6b4f68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
