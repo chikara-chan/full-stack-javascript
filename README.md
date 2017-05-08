@@ -35,7 +35,23 @@ Platform for seller
 
 Platform for manager
 
-![](http://upload-images.jianshu.io/upload_images/4145295-68b4c6721b4abf43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
+![](http://upload-images.jianshu.io/upload_images/4145295-2bd1b5b22449b92b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-66edee23f559faf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-5a22b585b956e393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-955cd674c0574743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-a089b914608ade42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-80cdc5356e37fbe2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-f1c9e4b79ba70235.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-ed37da25421c65be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/4145295-e40969fa5f5ae3fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # Author
 
