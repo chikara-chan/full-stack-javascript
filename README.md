@@ -35,6 +35,8 @@ Platform for seller
 
 Platform for manager
 
+![](http://upload-images.jianshu.io/upload_images/4145295-68b4c6721b4abf43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
+
 # Author
 
 Chikara Chan
