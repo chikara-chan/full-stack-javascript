@@ -1,7 +1,7 @@
 # Full Stack Javascript
 Good developers who are familiar with the entire stack know how to make life easier for those around them.
 
-# Getting started
+## Getting started
 
 ``` bash
 $ cd buyer
@@ -21,9 +21,9 @@ $ npm install
 $ npm run dev
 ```
 
-# What's included
+## What's included
 
-## Buyer
+### Buyer
 
 Platform for buyer
 
@@ -48,7 +48,7 @@ Platform for buyer
 ![](http://upload-images.jianshu.io/upload_images/4145295-21a28ee52e7591af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
 
-## Seller
+### Seller
 
 Platform for seller
 
@@ -72,7 +72,7 @@ Platform for seller
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-68b4c6721b4abf43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/330)
 
-## Manager
+### Manager
 
 Platform for manager
 
@@ -112,10 +112,10 @@ Platform for manager
 
 ![](http://upload-images.jianshu.io/upload_images/4145295-e40969fa5f5ae3fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-# Author
+## Author
 
 Chikara Chan
 
-# LICENSE
+## LICENSE
 
 Released under the [MIT](https://github.com/chikara-chan/full-stack-javascript/blob/master/LICENSE) license.
