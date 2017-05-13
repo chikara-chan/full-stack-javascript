@@ -4,7 +4,9 @@ Good developers who are familiar with the entire stack know how to make life eas
 ## Technology Stack
 
 - React
-- Koa
+- React Router
+- Redux
+- Koa2
 - MongoDB
 
 ## Getting started
