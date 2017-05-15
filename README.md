@@ -8,6 +8,7 @@ Good developers who are familiar with the entire stack know how to make life eas
 - Redux
 - Koa2
 - MongoDB
+- Mongoose
 
 ## Getting started
 
