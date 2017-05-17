@@ -1,6 +1,16 @@
 # Full Stack Javascript
 Good developers who are familiar with the entire stack know how to make life easier for those around them.
 
+## Technology Stack
+
+- React
+- React Router
+- Redux
+- Koa2
+- MongoDB
+- Mongoose
+- Webpack
+
 ## Getting started
 
 ``` bash
