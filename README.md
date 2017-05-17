@@ -9,6 +9,7 @@ Good developers who are familiar with the entire stack know how to make life eas
 - Koa2
 - MongoDB
 - Mongoose
+- Webpack
 
 ## Getting started
 
