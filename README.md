@@ -12,6 +12,7 @@ Good developers who are familiar with the entire stack know how to make life eas
 - Webpack
 - Babel
 - ESLint
+- PM2
 
 ## Getting started
 
