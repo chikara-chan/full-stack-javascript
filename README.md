@@ -6,7 +6,7 @@ Good developers who are familiar with the entire stack know how to make life eas
 - React
 - React Router
 - Redux
-- Koa2
+- Koa
 - MongoDB
 - Mongoose
 - Webpack
